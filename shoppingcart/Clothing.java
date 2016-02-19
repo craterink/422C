@@ -1,7 +1,7 @@
 package shoppingcart;
 
 //Premium shipping not available
-public class Clothing extends Item 
+public class Clothing extends PurchaseItem 
 {
 
 	// variables, constructors as necessary

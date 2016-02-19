@@ -16,13 +16,13 @@ public class A3Driver
 		//Parse input, take appropriate actions.
 		
 		//Stub for arraylist.
-		ArrayList<Item> shoppingCart = new ArrayList<Item>(); 
+		ArrayList<PurchaseItem> shoppingCart = new ArrayList<PurchaseItem>(); 
 		
 		// General code example for how to iterate an array list. You will have to modify this heavily, to suit your needs.
-		Iterator<Item> i = shoppingCart.iterator();
+		Iterator<PurchaseItem> i = shoppingCart.iterator();
 		while (i.hasNext()) 
 		{
-			Item temp = i.next();
+			PurchaseItem temp = i.next();
 			temp.calculatePrice(); 
 			temp.printItemAttributes();
 			//This (above) works because of polymorphism: a determination is made at runtime, 
