@@ -4,6 +4,8 @@ package shoppingcart;
 public class Clothing extends PurchaseItem 
 {
 
+	//No premium shipping
+	
 	// variables, constructors as necessary
 	
 	public float calculatePrice () 

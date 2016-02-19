@@ -5,6 +5,9 @@ package shoppingcart;
 public class Electronics extends PurchaseItem 
 {
 
+	/*
+	 * state name
+	 * */
 	// Variables, constructors etc. here.
 	
 	//Implement calculate price/print methods as necessary

@@ -3,6 +3,13 @@ package shoppingcart;
 public class PurchaseItem 
 {
 //Declare variables for this class. Think about its type: public, protected or private?
+	/*
+	 * item name
+	 * price
+	 * quantity
+	 * weight
+	 * 
+	 * */
 
 // You will need a constructor (Why?). Create it here.
 	

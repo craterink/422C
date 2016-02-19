@@ -1,0 +1,6 @@
+Cooper:
+	-Transaction
+	-Driver
+Aria:
+	-ShoppingCart
+	-Purchase items and subs
