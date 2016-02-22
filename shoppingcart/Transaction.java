@@ -87,49 +87,53 @@ public class Transaction {
 	 * @throws InvalidTransactionException When an invalid exception was entered
 	 */
 	public Transaction(String transactionStr) throws InvalidTransactionException {
-		//get rid of any whitespace that isn't a single space
-		transactionStr.replaceAll("[\\t ]+", " ");
-		if(transactionStr.startsWith(" ")) transactionStr.replaceFirst(" ", "");
-		//split using single space as delimiter
-		String type = transactionStr.substring(0, transactionStr.indexOf(" "));
-		//if empty transaction is invalid
-		switch(type.toLowerCase()) {
-		case "insert":
-			if(!transactionStr.toLowerCase().matches(INSERT_REGEX.toLowerCase())) 
-				throw new InvalidTransactionException();
-			else {
-				parseInsert(transactionStr);
+		try {
+			//get rid of any whitespace that isn't a single space
+			transactionStr.replaceAll("[\\t ]+", " ");
+			if(transactionStr.startsWith(" ")) transactionStr.replaceFirst(" ", "");
+			//split using single space as delimiter
+			String type = transactionStr.substring(0, transactionStr.indexOf(" "));
+			//if empty transaction is invalid
+			switch(type.toLowerCase()) {
+			case "insert":
+				if(!transactionStr.toLowerCase().matches(INSERT_REGEX.toLowerCase())) 
+					throw new InvalidTransactionException();
+				else {
+					parseInsert(transactionStr);
+				}
+				break;
+			case "delete":
+				if(!transactionStr.toLowerCase().matches(DELETE_REGEX)) 
+					throw new InvalidTransactionException();
+				else {
+					parseDelete(transactionStr);
+				}
+				break;
+			case "search":
+				if(!transactionStr.toLowerCase().matches(SEARCH_REGEX)) 
+					throw new InvalidTransactionException();
+				else {
+					parseSearch(transactionStr);
+				}
+				break;
+			case "update":
+				if(!transactionStr.toLowerCase().matches(UPDATE_REGEX)) 
+					throw new InvalidTransactionException();
+				else {
+					parseUpdate(transactionStr);
+				}
+				break;
+			case "print":
+				if(!transactionStr.toLowerCase().matches(PRINT_REGEX)) 
+					throw new InvalidTransactionException();
+				else {
+					parsePrint(transactionStr);
+				}
+				break;
+			default:
+				throw new Exception();
 			}
-			break;
-		case "delete":
-			if(!transactionStr.toLowerCase().matches(DELETE_REGEX)) 
-				throw new InvalidTransactionException();
-			else {
-				parseDelete(transactionStr);
-			}
-			break;
-		case "search":
-			if(!transactionStr.toLowerCase().matches(SEARCH_REGEX)) 
-				throw new InvalidTransactionException();
-			else {
-				parseSearch(transactionStr);
-			}
-			break;
-		case "update":
-			if(!transactionStr.toLowerCase().matches(UPDATE_REGEX)) 
-				throw new InvalidTransactionException();
-			else {
-				parseUpdate(transactionStr);
-			}
-			break;
-		case "print":
-			if(!transactionStr.toLowerCase().matches(PRINT_REGEX)) 
-				throw new InvalidTransactionException();
-			else {
-				parsePrint(transactionStr);
-			}
-			break;
-		default:
+		} catch (Exception e) {
 			throw new InvalidTransactionException();
 		}
 	}

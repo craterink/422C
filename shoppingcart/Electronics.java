@@ -40,4 +40,22 @@ public class Electronics extends PurchaseItem
 		isFragile = isItemFragile;
 		stateName = itemStateName;
 	}
+	
+	public double calculatePrice() {
+		if(stateName.matches(REGEX_SALESFREE)) {
+			return super.calculatePrice();
+		} else {
+			return super.calculatePrice()/SALES_TAX;
+		}
+	}
+	
+	public double calculateShippingCost() {
+		if(isFragile) {
+			return super.calculateShippingCost()*1.2;
+		}
+		else {
+			return super.calculateShippingCost();
+		}
+		
+	}
 }

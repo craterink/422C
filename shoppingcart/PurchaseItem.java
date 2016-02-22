@@ -28,6 +28,11 @@ public class PurchaseItem
 	protected int weight;
 	
 	/**
+	 * Default sales tax levied on purchased items.
+	 */
+	protected static final double SALES_TAX = 1.1;
+	
+	/**
 	 * Initializes a PurchaseItem object with its required member variables. 
 	 * @param itemName Item name.
 	 * @param itemPrice Item price.
@@ -46,9 +51,9 @@ public class PurchaseItem
 	 * Calculates this item's price using default calculations.
 	 * @return Final price of item.
 	 */
-	public double calculatePrice () 
-	{
-		double finalPrice = (double)(price*quantity);
+	public double calculatePrice() {
+		double finalPrice = price*quantity + calculateShippingCost(); //TODO: check runtime call
+		finalPrice *= SALES_TAX;
 		return finalPrice;
 	}
 	
@@ -61,6 +66,14 @@ public class PurchaseItem
 							  + "price: " + price + "\n"
 							  + "quantity: " + quantity + "\n"
 							  + "weight: " + weight);
+	}
+	
+	/**
+	 * Calculates the shipping cost of this item.
+	 * @return Shipping cost for this item.
+	 */
+	public double calculateShippingCost() {
+		return 20*weight*quantity;
 	}
 
 }

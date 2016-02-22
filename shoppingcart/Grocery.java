@@ -28,4 +28,25 @@ public class Grocery extends PurchaseItem {
 		super(itemName, itemPrice, itemQuantity, itemWeight);
 		isPerishable = isItemPerishable;
 	}
+	
+	/**
+	 * Used to calculate shipping cost for groceries.
+	 * @return Shipping cost for this grocery item.
+	 */
+	public double calculateShippingCost() {
+		if(isPerishable) {
+			return super.calculateShippingCost()*1.2;
+		}
+		else {
+			return super.calculateShippingCost();
+		}
+	}
+	
+	/**
+	 * Used to calculate the price of a grocery item.
+	 * 
+	 */
+	public double calculatePrice() {
+		return super.calculatePrice()/SALES_TAX;
+	}
 }

@@ -2,7 +2,6 @@ package assignment3;
 
 import shoppingcart.*;
 import shoppingcart.errors.InvalidTransactionException;
-import ui.UI;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
