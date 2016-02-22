@@ -1,29 +1,66 @@
 package shoppingcart;
 
+/**
+ * Base class representing any item that can go in the shopping cart.
+ * @author Cooper
+ *
+ */
 public class PurchaseItem 
 {
-//Declare variables for this class. Think about its type: public, protected or private?
-	/*
-	 * item name
-	 * price
-	 * quantity
-	 * weight
-	 * 
-	 * */
-
-// You will need a constructor (Why?). Create it here.
+	/**
+	 * Item name.
+	 */
+	protected String name;
 	
-	public float calculatePrice () 
+	/**
+	 * Item price.
+	 */
+	protected double price;
+	
+	/**
+	 * Item quantity.
+	 */
+	protected int quantity;
+	
+	/**
+	 * Item weight.
+	 */
+	protected int weight;
+	
+	/**
+	 * Initializes a PurchaseItem object with its required member variables. 
+	 * @param itemName Item name.
+	 * @param itemPrice Item price.
+	 * @param itemQuantity Item quantity.
+	 * @param itemWeight Item weight.
+	 */
+	public PurchaseItem(String itemName, double itemPrice, int itemQuantity, int itemWeight) {
+		name = itemName;
+		price = itemPrice;
+		quantity = itemQuantity;
+		weight = itemWeight;
+	}
+
+
+	/**
+	 * Calculates this item's price using default calculations.
+	 * @return Final price of item.
+	 */
+	public double calculatePrice () 
 	{
-		float final_price = 0;
-		// Insert price calculation here
-		return final_price;
+		double finalPrice = (double)(price*quantity);
+		return finalPrice;
 	}
 	
-
+	/**
+	 * Prints to the console this purchase item's member variables.
+	 */
 	public void printItemAttributes () 
 	{
-		//Print all applicable attributes of this class
+		System.out.println("name: " + name + "\n" 
+							  + "price: " + price + "\n"
+							  + "quantity: " + quantity + "\n"
+							  + "weight: " + weight);
 	}
 
 }
