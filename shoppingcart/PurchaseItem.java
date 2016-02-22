@@ -33,6 +33,17 @@ public class PurchaseItem
 	protected static final double SALES_TAX = 1.1;
 	
 	/**
+	 * Multiplier used to calculate a purchased item's shipping cost.
+	 * Multiplied by total weight to get base shipping cost.
+	 */
+	protected static final double SHIPPING_RATE = 20;
+	
+	/**
+	 * Overhead cost multiplier for premium shipping of a purchase item.
+	 */
+	protected static final double PREMIUM_SHIPPING_RATE = 1.2;
+	
+	/**
 	 * Initializes a PurchaseItem object with its required member variables. 
 	 * @param itemName Item name.
 	 * @param itemPrice Item price.
@@ -52,9 +63,7 @@ public class PurchaseItem
 	 * @return Final price of item.
 	 */
 	public double calculatePrice() {
-		double finalPrice = price*quantity + calculateShippingCost(); //TODO: check runtime call
-		finalPrice *= SALES_TAX;
-		return finalPrice;
+		return (price*quantity + calculateShippingCost())*SALES_TAX;
 	}
 	
 	/**
@@ -73,7 +82,7 @@ public class PurchaseItem
 	 * @return Shipping cost for this item.
 	 */
 	public double calculateShippingCost() {
-		return 20*weight*quantity;
+		return SHIPPING_RATE*weight*quantity;
 	}
 
 }

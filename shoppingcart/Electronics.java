@@ -41,20 +41,28 @@ public class Electronics extends PurchaseItem
 		stateName = itemStateName;
 	}
 	
+	/**
+	 * Used to calculate an electronics item's final price.
+	 * @return This electronic's final price.
+	 */
 	public double calculatePrice() {
 		if(stateName.matches(REGEX_SALESFREE)) {
-			return super.calculatePrice();
+			return (price*quantity + calculateShippingCost())*SALES_TAX;
 		} else {
-			return super.calculatePrice()/SALES_TAX;
+			return price*quantity + calculateShippingCost();
 		}
 	}
 	
+	/**
+	 * Used to calculate an electronics item's shipping cost.
+	 * @return This electronic's final shipping cost.
+	 */
 	public double calculateShippingCost() {
 		if(isFragile) {
-			return super.calculateShippingCost()*1.2;
+			return SHIPPING_RATE*weight*quantity*PREMIUM_SHIPPING_RATE;
 		}
 		else {
-			return super.calculateShippingCost();
+			return SHIPPING_RATE*weight*quantity;
 		}
 		
 	}

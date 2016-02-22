@@ -4,10 +4,8 @@ import shoppingcart.*;
 import shoppingcart.errors.InvalidTransactionException;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.*;
 
 /**
  * Driver for EE 422C Assignment 3

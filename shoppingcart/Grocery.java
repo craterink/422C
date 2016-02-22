@@ -35,18 +35,18 @@ public class Grocery extends PurchaseItem {
 	 */
 	public double calculateShippingCost() {
 		if(isPerishable) {
-			return super.calculateShippingCost()*1.2;
+			return SHIPPING_RATE*weight*quantity*PREMIUM_SHIPPING_RATE;
 		}
 		else {
-			return super.calculateShippingCost();
+			return SHIPPING_RATE*weight*quantity;
 		}
 	}
 	
 	/**
-	 * Used to calculate the price of a grocery item.
-	 * 
+	 * Used to calculate the final price of a grocery item.
+	 * @return This grocery item's price.
 	 */
 	public double calculatePrice() {
-		return super.calculatePrice()/SALES_TAX;
+		return price*quantity + calculateShippingCost();
 	}
 }
