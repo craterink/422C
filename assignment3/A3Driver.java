@@ -2,33 +2,28 @@ package assignment3;
 
 import shoppingcart.*;
 import ui.UI;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.*;
+
+import bank.Bank;
+import bank.Transaction;
+import bank.errors.IllegalTransactionException;
 
 public class A3Driver 
 	{
 
 	  public static void main(String[] args) 
 	  {
-		// TODO Auto-generated method stub
-		
-		//Open file; file name specified in args (command line)
-		
-		//Parse input, take appropriate actions.
-		
-		//Stub for arraylist.
-		ArrayList<PurchaseItem> shoppingCart = new ArrayList<PurchaseItem>(); 
-		
-		// General code example for how to iterate an array list. You will have to modify this heavily, to suit your needs.
-		Iterator<PurchaseItem> i = shoppingCart.iterator();
-		while (i.hasNext()) 
-		{
-			PurchaseItem temp = i.next();
-			temp.calculatePrice(); 
-			temp.printItemAttributes();
-			//This (above) works because of polymorphism: a determination is made at runtime, 
-			//based on the inherited class type, as to which method is to be invoked. Eg: If it is an instance
-			// of Grocery, it will invoke the calculatePrice () method defined in Grocery.
-		}		
+		  FileReader freader = new FileReader(args[0]);//args[0]);
+		  BufferedReader reader = new BufferedReader(freader);
+		  ShoppingCart cart = new ShoppingCart();
+		  for (String line = reader.readLine(); line != null; line = reader.readLine()) 
+		  {
+				System.out.println(cart.performTransaction(new Transaction(line)));
+		  }
+		  cart.print();
 	  }
 
 }
