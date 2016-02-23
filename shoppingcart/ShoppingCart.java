@@ -1,5 +1,6 @@
 package shoppingcart;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
@@ -68,10 +69,13 @@ public class ShoppingCart {
 	 * Print a cart receipt for final checkout.
 	 */
 	public void print() {
-		System.out.println("Shopping cart items:");
+		System.out.println("Shopping Cart Items:\n");
+		double total = 0;
 		for(PurchaseItem item : cart) {
 			item.printItemAttributes();
+			total += item.calculatePrice();
 		}
-		//TODO: print everything required
+		System.out.println("======>>>> Shopping Cart Total Price: $" + 
+								(new DecimalFormat("0.00")).format(total));
 	}
 }

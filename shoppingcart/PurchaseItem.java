@@ -1,5 +1,7 @@
 package shoppingcart;
 
+import java.text.DecimalFormat;
+
 /**
  * Base class representing any item that can go in the shopping cart.
  * @author Cooper
@@ -72,9 +74,11 @@ public class PurchaseItem
 	public void printItemAttributes () 
 	{
 		System.out.println("name: " + name + "\n" 
-							  + "price: " + price + "\n"
-							  + "quantity: " + quantity + "\n"
-							  + "weight: " + weight);
+							  + "price: $" + (new DecimalFormat("0.00")).format(price) + "\n"
+							  + "quantity: " + quantity + " units\n"
+							  + "weight: " + weight
+							  + "=> Final Price: $" + (new DecimalFormat("0.00")).format(calculatePrice()) 
+							  + "\n");
 	}
 	
 	/**
