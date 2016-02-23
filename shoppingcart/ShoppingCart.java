@@ -14,8 +14,8 @@ import java.util.ArrayList;
 /**
  * Class that represents a shopping cart composed of any number of items.
  * Items in the cart must be alphabetized.
- * @author Aria Pahlavan, Cooper Raterink
  *
+ * @author Aria Pahlavan, Cooper Raterink
  */
 public class ShoppingCart {
 
@@ -33,6 +33,7 @@ public class ShoppingCart {
 
     /**
      * Get the cart.
+     *
      * @return This shopping cart's list of purchase items.
      */
     public ArrayList<PurchaseItem> getCart() {
@@ -41,6 +42,7 @@ public class ShoppingCart {
 
     /**
      * Update the cart.
+     *
      * @param newCart The new list of purchase items to put in this cart.
      */
     public void setCart(ArrayList<PurchaseItem> newCart) {
@@ -49,6 +51,7 @@ public class ShoppingCart {
 
     /**
      * Performs a transaction on this cart based on a transaction object.
+     *
      * @param trans The Transaction to perform on this cart.
      */
     public void performTransaction(Transaction trans) {
@@ -94,17 +97,17 @@ public class ShoppingCart {
 
     }
 
-	/**
-	 * Print a cart receipt for final checkout.
-	 */
-	public void print() {
-		System.out.println("Shopping Cart Items:\n");
-		double total = 0;
-		for(PurchaseItem item : cart) {
-			item.printItemAttributes();
-			total += item.calculatePrice();
-		}
-		System.out.println("======>>>> Shopping Cart Total Price: $" + 
-								(new DecimalFormat("0.00")).format(total));
+    /**
+     * Print a cart receipt for final checkout.
+     */
+    public void print() {
+        System.out.println("Shopping Cart Items:\n");
+        double total = 0;
+        for (PurchaseItem item : cart) {
+            item.printItemAttributes();
+            total += item.calculatePrice();
+        }
+        System.out.println("======>>>> Shopping Cart Total Price: $" +
+                (new DecimalFormat("0.00")).format(total));
     }
 }

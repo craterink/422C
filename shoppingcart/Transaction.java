@@ -149,13 +149,6 @@ public class Transaction {
                         parseUpdate(transactionStr);
                     }
                     break;
-                case "print":
-                    if (!transactionStr.toLowerCase().matches(PRINT_REGEX))
-                        throw new InvalidTransactionException(transactionStr);
-                    else {
-                        parsePrint(transactionStr);
-                    }
-                    break;
                 default:
                     throw new InvalidTransactionException(transactionStr);
             }
