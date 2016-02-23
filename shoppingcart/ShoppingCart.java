@@ -94,14 +94,6 @@ public class ShoppingCart {
 
     }
 
-    /**
-     * Print a cart receipt for final checkout.
-     */
-    public void print() {
-        //item number
-        int index = 0;
-
-<<<<<<< HEAD
 	/**
 	 * Print a cart receipt for final checkout.
 	 */
@@ -114,16 +106,5 @@ public class ShoppingCart {
 		}
 		System.out.println("======>>>> Shopping Cart Total Price: $" + 
 								(new DecimalFormat("0.00")).format(total));
-	}
-=======
-        //start of slip
-        System.out.println("Shopping cart items: \n"
-                + " Item \t Qty \t Weight \t Price");
-        for (PurchaseItem item : cart) {
-            System.out.println(index + ". ");
-            item.printItemAttributes();
-        }
-        //TODO: print everything required
     }
->>>>>>> 62c6428a0603c552d97ef94edfebef60854fab9b
 }

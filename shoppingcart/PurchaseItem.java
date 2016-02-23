@@ -84,21 +84,18 @@ public class PurchaseItem {
 	 */
 	public void calculateShipCost ()
 	{
-<<<<<<< HEAD
 		System.out.println("name: " + name + "\n" 
 							  + "price: $" + (new DecimalFormat("0.00")).format(price) + "\n"
 							  + "quantity: " + quantity + " units\n"
 							  + "weight: " + weight
 							  + "=> Final Price: $" + (new DecimalFormat("0.00")).format(calculatePrice()) 
 							  + "\n");
-=======
 	   //Calculates regular shipping cost
 	    shippingCost = (SHIPPING_RATE*(weight))*quantity;
 	    
 	    //If premium shipping requested, add %20
 	    if(isPremium)
 	        shippingCost += PREMIUM_RATE*shippingCost;
->>>>>>> 62c6428a0603c552d97ef94edfebef60854fab9b
 	}
 	
 	/**
