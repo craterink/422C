@@ -1,70 +1,107 @@
+/**
+ * Driver for EE 422C Assignment 3
+ *
+ * @author Aria Pahlavan, Cooper Raterink
+ * EIDs: ap44342, cdr2678
+ * Lab section: Friday 2-3:30pm
+ * Date: String 2015
+ */
 package shoppingcart;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
- * Class that represents a shopping cart composed of any amount of PurchaseItems.
- * @author Cooper
+ * Class that represents a shopping cart composed of any number of items.
+ * Items in the cart must be alphabetized.
+ * @author Aria Pahlavan, Cooper Raterink
  *
  */
 public class ShoppingCart {
 
-	/**
-	 * Alphabetized-by-name list of purchase items in this cart.
-	 */
-	protected ArrayList<PurchaseItem> cart;
-	
-	/**
-	 * Initializes a new shopping cart.
-	 */
-	public ShoppingCart() {
-		cart = new ArrayList<PurchaseItem>();
-	}
-	
-	/**
-	 * Get the cart.
-	 * @return This shopping cart's list of purchase items.
-	 */
-	public ArrayList<PurchaseItem> getCart() {
-		return cart;
-	}
-	
-	/**
-	 * Change the cart to a new cart.
-	 * @param newCart The new list of purchase items to put in this cart.
-	 */
-	public void setCart(ArrayList<PurchaseItem> newCart) {
-		cart = newCart;
-	}
+    /**
+     * Alphabetized-by-name list of purchase items in this cart.
+     */
+    protected ArrayList<PurchaseItem> cart;
 
-	/**
-	 * Performs a transaction on this cart based on a transaction object.
-	 * @param trans The Transaction to perform on this cart.
-	 */
-	public void performTransaction(Transaction trans) {
-		switch(trans.getTransactionType()) {
-		case 'C': //insert clothing
-		case 'E': //insert electronics
-		case 'G': //insert groceries
-			cart.add(trans.getTransactionItem());
-			break;
-		case 'U': //update
-			
-			break;
-		case 'D': //delete
-			
-			break;
-		case 'S': //search
-			
-			break;
-		case 'P': //print
-			print();
-			break;
-		}
-		
-	}
+    /**
+     * Initializes a new shopping cart.
+     */
+    public ShoppingCart() {
+        cart = new ArrayList<PurchaseItem>();
+    }
 
+    /**
+     * Get the cart.
+     * @return This shopping cart's list of purchase items.
+     */
+    public ArrayList<PurchaseItem> getCart() {
+        return cart;
+    }
+
+    /**
+     * Update the cart.
+     * @param newCart The new list of purchase items to put in this cart.
+     */
+    public void setCart(ArrayList<PurchaseItem> newCart) {
+        cart = newCart;
+    }
+
+    /**
+     * Performs a transaction on this cart based on a transaction object.
+     * @param trans The Transaction to perform on this cart.
+     */
+    public void performTransaction(Transaction trans) {
+        PurchaseItem transItem = trans.getTransactionItem();
+        switch (trans.getTransactionType()) {
+            case CLOTH: //insert clothing
+            case ELECT: //insert electronics
+            case GROCERY: //insert groceries
+                cart.add(transItem);
+                break;
+            case UPDATE: //update
+                for (PurchaseItem item : cart) {
+                    if (transItem.name == item.name) {
+                        item.updateItem(transItem);
+                        System.out.println(item.name + "\t" + item.quantity);
+                        break; //Only update the first occurrence of an item
+                    }
+                }
+                break;
+            case DEL: //delete
+                int deletionCounter = 0;
+                for (PurchaseItem item : cart) {
+                    if (transItem.name == item.name) {
+                        cart.remove(item);
+                        deletionCounter += 1;
+                    }
+                }
+                //outputting number of deletions
+                System.out.println(deletionCounter + " " + transItem.name + " were deleted.");
+                break;
+            case SEARCH: //search
+                int searchResult = 0;
+                for (PurchaseItem item : cart) {
+                    if (transItem.name == item.name)
+                        searchResult += 1;
+                }
+                System.out.println(searchResult + " " + transItem.name + "(s) were found.");
+                break;
+            case PRINT: //print
+                print();
+                break;
+        }
+
+    }
+
+    /**
+     * Print a cart receipt for final checkout.
+     */
+    public void print() {
+        //item number
+        int index = 0;
+
+<<<<<<< HEAD
 	/**
 	 * Print a cart receipt for final checkout.
 	 */
@@ -78,4 +115,15 @@ public class ShoppingCart {
 		System.out.println("======>>>> Shopping Cart Total Price: $" + 
 								(new DecimalFormat("0.00")).format(total));
 	}
+=======
+        //start of slip
+        System.out.println("Shopping cart items: \n"
+                + " Item \t Qty \t Weight \t Price");
+        for (PurchaseItem item : cart) {
+            System.out.println(index + ". ");
+            item.printItemAttributes();
+        }
+        //TODO: print everything required
+    }
+>>>>>>> 62c6428a0603c552d97ef94edfebef60854fab9b
 }

@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * Driver for EE 422C Assignment 3
  * @author Cooper Raterink, Aria Pahlavan
- * EIDs: cdr2678, ******
+ * EIDs: cdr2678, ap44342
  * Lab section: Friday 2-3:30pm
  */
 public class A3Driver 

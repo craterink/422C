@@ -1,11 +1,34 @@
+/**
+ * Driver for EE 422C Assignment 3
+ * @author Aria Pahlavan, Cooper Raterink
+ * EIDs: ap44342, cdr2678
+ * Lab section: Friday 2-3:30pm
+ * Date: String 2015
+ */
 package shoppingcart;
 
 import shoppingcart.errors.InvalidTransactionException;
 
 /**
+ * Enumerated type representing different transaction types
+ * @author Aria Pahlavan, Cooper Raterink
+ *
+ */
+enum TransType {
+	NONE,		//invalid
+	CLOTH,		//insert clothing
+	ELECT,		//insert electronics
+	GROCERY,	//insert groceries
+	DEL,		//delete item
+	SEARCH,		//search item
+	PRINT,		//print all
+	UPDATE		//update item
+}
+
+/**
  * Class that represents a transaction for the shopping cart to handle.
  * Could be an insert, delete, etc.
- * @author Cooper
+ * @author Aria Pahlavan, Cooper Raterink
  *
  */
 public class Transaction {
@@ -32,6 +55,7 @@ public class Transaction {
 	/**
 	 * Regex matching a search transaction
 	 */
+	//*****************shouldn't we make these final too?
 	private static String SEARCH_REGEX = "search [a-z0-9]+ ?";
 	
 	/**
@@ -43,25 +67,19 @@ public class Transaction {
 	 * Regex matching a print transaction
 	 */
 	private static String PRINT_REGEX = "print ?";
-	
+
+
+	private TransType transactionType = TransType.NONE;
+
 	/**
-	 * Char representing type of transaction:
-	 * 0 if invalid
-	 * C for insert clothing
-	 * E for insert electronics
-	 * G for insert groceries
-	 * D for delete
-	 * S for search
-	 * P for print
-	 * U for update
+	 * Sets the type of each transaction using the TransType enum
+	 * @return TransType
 	 */
-	private char transactionType = 0;
-	
-	public char getTransactionType() {
+	public TransType getTransactionType() {
 		return transactionType;
 	}
 
-	public void setTransactionType(char transactionType) {
+	public void setTransactionType(TransType transactionType) {
 		this.transactionType = transactionType;
 	}
 
@@ -97,35 +115,35 @@ public class Transaction {
 			switch(type.toLowerCase()) {
 			case "insert":
 				if(!transactionStr.toLowerCase().matches(INSERT_REGEX.toLowerCase())) 
-					throw new InvalidTransactionException();
+					throw new InvalidTransactionException(transactionStr);
 				else {
 					parseInsert(transactionStr);
 				}
 				break;
 			case "delete":
 				if(!transactionStr.toLowerCase().matches(DELETE_REGEX)) 
-					throw new InvalidTransactionException();
+					throw new InvalidTransactionException(transactionStr);
 				else {
 					parseDelete(transactionStr);
 				}
 				break;
 			case "search":
 				if(!transactionStr.toLowerCase().matches(SEARCH_REGEX)) 
-					throw new InvalidTransactionException();
+					throw new InvalidTransactionException(transactionStr);
 				else {
 					parseSearch(transactionStr);
 				}
 				break;
 			case "update":
 				if(!transactionStr.toLowerCase().matches(UPDATE_REGEX)) 
-					throw new InvalidTransactionException();
+					throw new InvalidTransactionException(transactionStr);
 				else {
 					parseUpdate(transactionStr);
 				}
 				break;
 			case "print":
 				if(!transactionStr.toLowerCase().matches(PRINT_REGEX)) 
-					throw new InvalidTransactionException();
+					throw new InvalidTransactionException(transactionStr);
 				else {
 					parsePrint(transactionStr);
 				}
@@ -133,8 +151,12 @@ public class Transaction {
 			default:
 				throw new Exception();
 			}
-		} catch (Exception e) {
-			throw new InvalidTransactionException();
+		}
+		catch (InvalidTransactionException i){
+			i.printError();
+		}
+		catch (Exception e) {
+			throw new InvalidTransactionException(transactionStr);
 		}
 	}
 
@@ -143,7 +165,7 @@ public class Transaction {
 	 * @param printStr Transaction input string
 	 */
 	private void parsePrint(String printStr) {
-		transactionType = 'P';
+		transactionType = TransType.PRINT;
 	}
 
 	/**
@@ -151,7 +173,7 @@ public class Transaction {
 	 * @param updateStr Transaction input string
 	 */
 	private void parseUpdate(String updateStr) {
-		transactionType = 'U';
+		transactionType = TransType.UPDATE;
 		transactionItem = new PurchaseItem(
 				updateStr.split(" ")[1], Double.parseDouble(updateStr.split(" ")[2]), 0, 0);
 	}
@@ -161,7 +183,7 @@ public class Transaction {
 	 * @param searchStr Transaction input string
 	 */
 	private void parseSearch(String searchStr) {
-		transactionType = 'S';
+		transactionType = TransType.SEARCH;
 		transactionItem = new PurchaseItem(searchStr.split(" ")[1], 0, 0, 0);
 	}
 
@@ -170,7 +192,7 @@ public class Transaction {
 	 * @param deleteStr Transaction input string
 	 */
 	private void parseDelete(String deleteStr) {
-		transactionType = 'D';
+		transactionType = TransType.DEL;
 		transactionItem = new PurchaseItem(deleteStr.split(" ")[1], 0, 0, 0);
 	}
 
@@ -182,19 +204,19 @@ public class Transaction {
 		String[] splitInsert = insertStr.split(" ");
 		switch(splitInsert[1]) {
 			case "clothing":
-				transactionType = 'C';
+				transactionType = TransType.CLOTH;
 				transactionItem = new Clothing(
 						splitInsert[2], Double.parseDouble(splitInsert[3]), Integer.parseInt(splitInsert[4]),
 						Integer.parseInt(splitInsert[5]));
 				break;
 			case "electronics":
-				transactionType = 'E';
+				transactionType = TransType.ELECT;
 				transactionItem = new Electronics(
 						splitInsert[2], Double.parseDouble(splitInsert[3]), Integer.parseInt(splitInsert[4]),
 						Integer.parseInt(splitInsert[5]), splitInsert[6].matches("F"), splitInsert[7]);
 				break;
 			case "groceries":
-				transactionType = 'G';
+				transactionType = TransType.GROCERY;
 				transactionItem = new Grocery(
 						splitInsert[2], Double.parseDouble(splitInsert[3]), Integer.parseInt(splitInsert[4]),
 						Integer.parseInt(splitInsert[5]), splitInsert[6].matches("P"));

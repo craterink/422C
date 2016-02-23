@@ -1,10 +1,17 @@
+/**
+ * Driver for EE 422C Assignment 3
+ * @author Aria Pahlavan, Cooper Raterink
+ * EIDs: ap44342, cdr2678
+ * Lab section: Friday 2-3:30pm
+ * Date: String 2015
+ */
 package shoppingcart;
 
 /**
  * Class representing an electronics purchase item that could go in the shopping cart.
- * Fragile or Nonfragile: fragile require premium shipping.
+ * Fragile or Non-fragile: fragile require premium shipping.
  * (Delivery) States of TX, NM, VA, AZ, AK have no sales tax for electronics
- * @author Cooper
+ * @author Aria Pahlavan, Cooper Raterink
  *
  */
 public class Electronics extends PurchaseItem 
@@ -25,9 +32,19 @@ public class Electronics extends PurchaseItem
 	 * Regex matching sales-tax-free states: TX, NM, VA, AZ, AK
 	 */
 	private static final String REGEX_SALESFREE = "TX|NM|VA|AZ|AK";
-	
+
+
 	/**
-	 * Initializes Electronics purchase item object with its required member variables.
+	 * Default constructor - Initializes Electronics item object with proper details.
+	 */
+	public Electronics() {
+		super();
+		//assuming item is not fragile
+		isFragile = false;
+	}
+
+	/**
+	 * Custom constructor - Initializes Electronics purchase item object with its required member variables.
 	 * @param itemName Item name.
 	 * @param itemPrice Item price.
 	 * @param itemQuantity Item quantity.
@@ -40,30 +57,38 @@ public class Electronics extends PurchaseItem
 		isFragile = isItemFragile;
 		stateName = itemStateName;
 	}
-	
-	/**
-	 * Used to calculate an electronics item's final price.
-	 * @return This electronic's final price.
-	 */
-	public double calculatePrice() {
-		if(stateName.matches(REGEX_SALESFREE)) {
-			return (price*quantity + calculateShippingCost())*SALES_TAX;
-		} else {
-			return price*quantity + calculateShippingCost();
-		}
-	}
-	
+
+
+	@Override
 	/**
 	 * Used to calculate an electronics item's shipping cost.
-	 * @return This electronic's final shipping cost.
 	 */
-	public double calculateShippingCost() {
-		if(isFragile) {
-			return SHIPPING_RATE*weight*quantity*PREMIUM_SHIPPING_RATE;
-		}
-		else {
-			return SHIPPING_RATE*weight*quantity;
-		}
-		
+	public void calculateShipCost() {
+		//Calculates regular shipping cost
+		shippingCost = (SHIPPING_RATE*(weight))*quantity;
+
+		//If fragile items or premium shipping requested, add %20
+		if(isPremium || isFragile)
+			shippingCost += PREMIUM_RATE*shippingCost;
 	}
+
+	@Override
+	/**
+	 * Used to calculate an electronics item's sales tax.
+	 */
+	public void calculateTax() {
+		if(!isTaxExempt())
+			salesTax = price*TAX_RATE;
+		else
+			salesTax = 0.00;
+	}
+
+	/**
+	 * checks if the item is from a tax exempt state.
+	 * @return boolean If tax exempt true, otherwise false.
+	 */
+	public boolean isTaxExempt() {
+		return stateName.matches(REGEX_SALESFREE);
+	}
+
 }
