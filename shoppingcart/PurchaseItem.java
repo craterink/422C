@@ -7,6 +7,8 @@
  */
 package shoppingcart;
 
+import java.text.DecimalFormat;
+
 /**
  * Super class representing any item that can go in the shopping cart.
  *
@@ -82,6 +84,12 @@ public class PurchaseItem {
 	 */
 	public void calculateShipCost ()
 	{
+		System.out.println("name: " + name + "\n" 
+							  + "price: $" + (new DecimalFormat("0.00")).format(price) + "\n"
+							  + "quantity: " + quantity + " units\n"
+							  + "weight: " + weight
+							  + "=> Final Price: $" + (new DecimalFormat("0.00")).format(calculatePrice()) 
+							  + "\n");
 	   //Calculates regular shipping cost
 	    shippingCost = (SHIPPING_RATE*(weight))*quantity;
 	    
