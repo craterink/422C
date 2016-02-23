@@ -1,0 +1,9 @@
+insert clothing shirt 20.50 1 1
+insert electronics PS3 300 1 5.2 F NM
+insert groceries cabbage 2.00 5 1 NP
+print
+insert groceries cabbage 2.00 5 1 NP
+update cabbage 10
+delete cabbage
+print
+

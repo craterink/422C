@@ -42,7 +42,7 @@ public class Grocery extends PurchaseItem {
 	 * @param itemWeight       Item weight.
 	 * @param isItemPerishable Is this item perishable?
 	 */
-	public Grocery(String itemName, double itemPrice, int itemQuantity, int itemWeight, boolean isItemPerishable) {
+	public Grocery(String itemName, double itemPrice, int itemQuantity, double itemWeight, boolean isItemPerishable) {
 		super(itemName, itemPrice, itemQuantity, itemWeight);
 		isPerishable = isItemPerishable;
 	}

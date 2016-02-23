@@ -46,7 +46,7 @@ public class PurchaseItem {
 	 * @param itemQuantity Item quantity.
 	 * @param itemWeight Item weight.
 	 */
-	public PurchaseItem(String itemName, double itemPrice, int itemQuantity, int itemWeight) {
+	public PurchaseItem(String itemName, double itemPrice, int itemQuantity, double itemWeight) {
 		this.name = itemName;
 		this.price = itemPrice;
 		this.quantity = itemQuantity;

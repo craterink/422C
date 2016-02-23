@@ -21,6 +21,6 @@ public class InvalidTransactionException extends Exception {
     }
 
     public void printError(){
-        System.out.println("The following transaction contains an error: " + errorDetail);
+        System.out.println("\nThe following transaction contains an error: " + errorDetail);
     }
 }
