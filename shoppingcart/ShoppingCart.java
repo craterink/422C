@@ -73,9 +73,9 @@ public class ShoppingCart {
                 break;
             case DEL: //delete
                 int deletionCounter = 0;
-                for (PurchaseItem item : cart) {
-                    if (transItem.name == item.name) {
-                        cart.remove(item);
+                for (int i =0; i < cart.size(); i++) {
+                    if (transItem.name == cart.get(i).name) {
+                        cart.remove(cart.get(i));
                         deletionCounter += 1;
                     }
                 }

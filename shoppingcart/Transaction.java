@@ -44,8 +44,10 @@ public class Transaction {
     /**
      * Regex matching an insert transaction
      */
-    private static final String INSERT_REGEX = "insert ((clothing)|(electronics)|(groceries)) [a-zA-Z0-9]+ " +
-            "[0-9]+(\\.[0-9]{1,2})? [0-9]+ [0-9]+(\\.[0-9]{1,2})? ?N?F? ?(" + STATES_REGEX + ")?(N?P)?";
+    private static final String INSERT_REGEX = "insert ((clothing [a-z0-9]+ [0-9]+(\\.[0-9]{1,2})? "
+    					+ "[0-9]+ [0-9]+)|(electronics [a-z0-9]+ [0-9]+(\\.[0-9]{1,2})? [0-9]+ [0-9]+ N?F "
+    					+ "(" + STATES_REGEX + "))|(groceries [a-z0-9]+ [0-9]+(\\.[0-9]{1,2})? [0-9]+ [0-9]"
+    							+ "+ N?P)) ?";
 
     /**
      * Regex matching a delete transaction
@@ -55,18 +57,17 @@ public class Transaction {
     /**
      * Regex matching a search transaction
      */
-    //*****************shouldn't we make these final too?
-    private static String SEARCH_REGEX = "search [a-z0-9]+ ?";
+    private static final String SEARCH_REGEX = "search [a-z0-9]+ ?";
 
     /**
      * Regex matching an update transaction
      */
-    private static String UPDATE_REGEX = "update [a-z0-9]+ [0-9]+ ?";
+    private static final String UPDATE_REGEX = "update [a-z0-9]+ [0-9]+ ?";
 
     /**
      * Regex matching a print transaction
      */
-    private static String PRINT_REGEX = "print ?";
+    private static final String PRINT_REGEX = "print ?";
 
 
     private TransType transactionType = TransType.NONE;
