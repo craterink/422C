@@ -1,24 +1,39 @@
+/**
+ * Driver for EE 422C Assignment 3
+ * @author Aria Pahlavan, Cooper Raterink
+ * EIDs: ap44342, cdr2678
+ * Lab section: Friday 2-3:30pm
+ * Date: String 2015
+ */
 package shoppingcart;
 
-//Premium shipping not available
+/**
+ * Class representing a clothing item that could go in the shopping cart.
+ * Special features: Premium shipping not available, otherwise standard purchase-item rules apply.
+ * @author Aria Pahlavan, Cooper Raterink
+ *
+ */
 public class Clothing extends PurchaseItem 
-{
-
-	//No premium shipping
-	
-	// variables, constructors as necessary
-	
-	public float calculatePrice () 
-	{
-		float final_price = 0;
-		// Insert price calculation here
-		return final_price;
+{	
+	/**
+	 * Initializes a clothing item object with its required member variables.
+	 * @param itemName Item name.
+	 * @param itemPrice Item price.
+	 * @param itemQuantity Item quantity.
+	 * @param itemWeight Item weight.
+	 */
+	public Clothing(String itemName, double itemPrice, int itemQuantity, int itemWeight) {
+		super(itemName, itemPrice, itemQuantity, itemWeight);
+		//premium shipping is not available
+		isPremium = false;
 	}
-	
-	public void printItemAttributes () 
-	{
-		//Print all applicable attributes of this sub-class
-	}
-	
 
+	@Override
+	/**
+	 * Used to calculate shipping cost for clothing items - no premium shipping available
+	 */
+	public void calculateShipCost() {
+		//Calculates regular shipping cost
+		shippingCost = (SHIPPING_RATE*(weight))*quantity;
+	}
 }

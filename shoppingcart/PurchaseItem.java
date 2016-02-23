@@ -1,7 +1,15 @@
+/**
+ * Driver for EE 422C Assignment 3
+ * @author Aria Pahlavan, Cooper Raterink
+ * EIDs: ap44342, cdr2678
+ * Lab section: Friday 2-3:30pm
+ * Date: String 2015
+ */
 package shoppingcart;
 
 /**
- * Base class representing any item that can go in the shopping cart.
+ * Super class representing any item that can go in the shopping cart.
+ *
  * @author Aria Pahlavan - Cooper Raterink
  *
  */
@@ -16,7 +24,7 @@ public class PurchaseItem {
 	protected int quantity;
 	protected double weight;
 	protected boolean isPremium;
-	protected boolean isTaxExempt;
+	protected final double TAX_RATE = 0.1, PREMIUM_RATE = 0.2, SHIPPING_RATE = 20;
 	
 	
 	
@@ -45,6 +53,14 @@ public class PurchaseItem {
 		this.weight = itemWeight;
 	}
 
+	/**
+	 * Updates the quantity of an item
+	 * @param newItem new item.
+	 */
+	public void updateItem(PurchaseItem newItem) {
+		this.quantity = newItem.quantity;
+	}
+
 
 	/**
 	 * Calculates this item's price using default calculations.
@@ -64,25 +80,22 @@ public class PurchaseItem {
 	/**
 	 * Calculates this item's shipping cost.
 	 */
-	public double calculateShipCost () 
+	public void calculateShipCost ()
 	{
 	   //Calculates regular shipping cost
-	    shippingCost = (20*(weight))*quantity;
+	    shippingCost = (SHIPPING_RATE*(weight))*quantity;
 	    
 	    //If premium shipping requested, add %20
 	    if(isPremium)
-	        shippingCost += 0.2*shippingCost;
+	        shippingCost += PREMIUM_RATE*shippingCost;
 	}
 	
 	/**
 	 * Calculates this item's sales tax.
 	 */
-	public double calculateTax () 
-	{   
-	    if(!isTaxExempt)
-	        salesTax = price*0.1;
-	    else
-	        salesTax = 0.00;
+	public void calculateTax ()
+	{
+		salesTax = price*TAX_RATE;
 	}
 	
 	/**
@@ -91,7 +104,7 @@ public class PurchaseItem {
 	public void printItemAttributes () 
 	{
 		System.out.println(name    + "\t" 
-		                 + quantit + "\t"
+		                 + quantity + "\t"
                          + weight  + "\t"
 				   + "$" + price   + "\n");
 	}

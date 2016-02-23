@@ -1,34 +1,39 @@
 package assignment3;
 
 import shoppingcart.*;
-import ui.UI;
-import java.util.*;
+import shoppingcart.errors.InvalidTransactionException;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+/**
+ * Driver for EE 422C Assignment 3
+ * @author Cooper Raterink, Aria Pahlavan
+ * EIDs: cdr2678, ap44342
+ * Lab section: Friday 2-3:30pm
+ */
 public class A3Driver 
 	{
 
-	  public static void main(String[] args) 
+	/**
+	 * Performs all transactions from the input file and then prints a "receipt"
+	 * representing the final shopping cart state.
+	 * @param args Transaction file path/name is first argument.
+	 * @throws IOException File error
+	 * @throws InvalidTransactionException If invalid transaction is entered //TODO
+	 */
+	  public static void main(String[] args) throws IOException, InvalidTransactionException 
 	  {
-		// TODO Auto-generated method stub
-		
-		//Open file; file name specified in args (command line)
-		
-		//Parse input, take appropriate actions.
-		
-		//Stub for arraylist.
-		ArrayList<PurchaseItem> shoppingCart = new ArrayList<PurchaseItem>(); 
-		
-		// General code example for how to iterate an array list. You will have to modify this heavily, to suit your needs.
-		Iterator<PurchaseItem> i = shoppingCart.iterator();
-		while (i.hasNext()) 
-		{
-			PurchaseItem temp = i.next();
-			temp.calculatePrice(); 
-			temp.printItemAttributes();
-			//This (above) works because of polymorphism: a determination is made at runtime, 
-			//based on the inherited class type, as to which method is to be invoked. Eg: If it is an instance
-			// of Grocery, it will invoke the calculatePrice () method defined in Grocery.
-		}		
+		  FileReader freader = new FileReader(args[0]);
+		  BufferedReader reader = new BufferedReader(freader);
+		  ShoppingCart cart = new ShoppingCart();
+		  //Read one line at a time, parse, then perform on cart
+		  for (String line = reader.readLine(); line != null; line = reader.readLine()) 
+		  {
+				cart.performTransaction(new Transaction(line));
+		  }
+		  cart.print();
 	  }
 
 }
