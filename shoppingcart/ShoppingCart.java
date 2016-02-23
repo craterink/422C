@@ -61,12 +61,13 @@ public class ShoppingCart {
             case ELECT: //insert electronics
             case GROCERY: //insert groceries
                 cart.add(transItem);
+                System.out.println("Added " + transItem.name + " to cart.");
                 break;
             case UPDATE: //update
                 for (PurchaseItem item : cart) {
                     if (transItem.name == item.name) {
                         item.updateItem(transItem);
-                        System.out.println(item.name + "\t" + item.quantity);
+                        System.out.println("Updated: " + item.name + "\t" + item.quantity);
                         break; //Only update the first occurrence of an item
                     }
                 }
