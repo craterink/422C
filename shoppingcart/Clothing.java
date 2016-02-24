@@ -24,7 +24,7 @@ public class Clothing extends PurchaseItem
 	 * @param itemQuantity Item quantity.
 	 * @param itemWeight Item weight.
 	 */
-	public Clothing(String itemName, BigDecimal itemPrice, int itemQuantity, int itemWeight) {
+	public Clothing(String itemName, BigDecimal itemPrice, long itemQuantity, long itemWeight) {
 		super(itemName, itemPrice, itemQuantity, itemWeight);
 		//premium shipping is not available
 		isPremium = false;

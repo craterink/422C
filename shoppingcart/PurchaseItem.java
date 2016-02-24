@@ -48,7 +48,7 @@ public class PurchaseItem implements Comparable<PurchaseItem>{
      * @param itemQuantity Item quantity.
      * @param itemWeight   Item weight.
      */
-    public PurchaseItem(String itemName, BigDecimal itemPrice, int itemQuantity, int itemWeight) {
+    public PurchaseItem(String itemName, BigDecimal itemPrice, long itemQuantity, long itemWeight) {
         this.name = itemName;
         this.price = itemPrice;
         this.quantity = itemQuantity;
@@ -95,7 +95,7 @@ public class PurchaseItem implements Comparable<PurchaseItem>{
 
         //If premium shipping requested, add %20
         if (isPremium)
-            shippingCost = shippingCost.add(shippingCost.multiply(PREMIUM_RATE));
+            shippingCost.add(shippingCost.multiply(PREMIUM_RATE));
     }
 
     /**

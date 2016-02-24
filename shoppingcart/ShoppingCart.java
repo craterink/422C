@@ -8,9 +8,11 @@
  */
 package shoppingcart;
 
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.function.BiFunction;
 
 /**
  * Class that represents a shopping cart composed of any number of items.
@@ -106,10 +108,10 @@ public class ShoppingCart {
     public void print() {
         System.out.println("Shopping Cart Items:\n");
         //Sum total prices of cart items
-        double total = 0;
+        BigDecimal total = BigDecimal.valueOf(0.00);
         for (PurchaseItem item : cart) {
             item.printItemAttributes();
-            total += item.calculatePrice();
+            total.add(item.calculatePrice());
         }
         System.out.println("======>>>> Shopping Cart Total Price: $" +
                 (new DecimalFormat("0.00")).format(total));

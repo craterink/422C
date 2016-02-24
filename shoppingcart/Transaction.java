@@ -204,7 +204,7 @@ public class Transaction {
     private void parseUpdate(String updateStr) {
         transactionType = TransType.UPDATE;
         transactionItem = new PurchaseItem(
-                updateStr.split(" ")[1], Double.parseDouble(updateStr.split(" ")[2]), 0, 0);
+                updateStr.split(" ")[1], BigDecimal.valueOf(Double.parseDouble(updateStr.split(" ")[2])), 0, 0);
     }
 
     /**
@@ -213,7 +213,7 @@ public class Transaction {
      */
     private void parseSearch(String searchStr) {
         transactionType = TransType.SEARCH;
-        transactionItem = new PurchaseItem(searchStr.split(" ")[1], 0, 0, 0);
+        transactionItem = new PurchaseItem(searchStr.split(" ")[1], BigDecimal.valueOf(0), 0, 0);
     }
 
     /**
@@ -222,7 +222,7 @@ public class Transaction {
      */
     private void parseDelete(String deleteStr) {
         transactionType = TransType.DEL;
-        transactionItem = new PurchaseItem(deleteStr.split(" ")[1], 0, 0, 0);
+        transactionItem = new PurchaseItem(deleteStr.split(" ")[1], BigDecimal.valueOf(0), 0, 0);
     }
 
     /**
@@ -235,20 +235,20 @@ public class Transaction {
             case "clothing":
                 transactionType = TransType.CLOTH;
                 transactionItem = new Clothing(
-                        splitInsert[2], Double.parseDouble(splitInsert[3].replaceAll(",", "")), (int)Double.parseDouble(splitInsert[4].replaceAll(",", "")),
-                        (int)Double.parseDouble(splitInsert[5].replaceAll(",", "")));
+                        splitInsert[2], BigDecimal.valueOf(Double.parseDouble(splitInsert[3].replaceAll(",", ""))), (long)Double.parseDouble(splitInsert[4].replaceAll(",", "")),
+                        (long)Double.parseDouble(splitInsert[5].replaceAll(",", "")));
                 break;
             case "electronics":
                 transactionType = TransType.ELECT;
                 transactionItem = new Electronics(
-                        splitInsert[2], Double.parseDouble(splitInsert[3].replaceAll(",", "")), (int)Double.parseDouble(splitInsert[4].replaceAll(",", "")),
-                        (int)Double.parseDouble(splitInsert[5].replaceAll(",", "")), splitInsert[6].matches("F"), splitInsert[7]);
+                        splitInsert[2], BigDecimal.valueOf(Double.parseDouble(splitInsert[3].replaceAll(",", ""))), (long)Double.parseDouble(splitInsert[4].replaceAll(",", "")),
+                        (long)Double.parseDouble(splitInsert[5].replaceAll(",", "")), splitInsert[6].matches("F"), splitInsert[7]);
                 break;
             case "groceries":
                 transactionType = TransType.GROCERY;
                 transactionItem = new Grocery(
-                        splitInsert[2], Double.parseDouble(splitInsert[3].replaceAll(",", "")), (int)Double.parseDouble(splitInsert[4].replaceAll(",", "")),
-                        (int)Double.parseDouble(splitInsert[5].replaceAll(",", "")), splitInsert[6].matches("P"));
+                        splitInsert[2], BigDecimal.valueOf(Double.parseDouble(splitInsert[3].replaceAll(",", ""))), (long)Double.parseDouble(splitInsert[4].replaceAll(",", "")),
+                        (long)Double.parseDouble(splitInsert[5].replaceAll(",", "")), splitInsert[6].matches("P"));
                 break;
         }
     }

@@ -52,7 +52,7 @@ public class Electronics extends PurchaseItem
 	 * @param isItemFragile Is the item fragile?
 	 * @param itemStateName State the item is being delivered to (for sales tax calculation)
 	 */
-	public Electronics(String itemName, BigDecimal itemPrice, int itemQuantity, int itemWeight, boolean isItemFragile, String itemStateName) {
+	public Electronics(String itemName, BigDecimal itemPrice, long itemQuantity, long itemWeight, boolean isItemFragile, String itemStateName) {
 		super(itemName, itemPrice, itemQuantity, itemWeight);
 		isFragile = isItemFragile;
 		stateName = itemStateName;
