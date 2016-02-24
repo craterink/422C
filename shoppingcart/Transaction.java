@@ -205,19 +205,19 @@ public class Transaction {
                 transactionType = TransType.CLOTH;
                 transactionItem = new Clothing(
                         splitInsert[2], Double.parseDouble(splitInsert[3]), Integer.parseInt(splitInsert[4]),
-                        Double.parseDouble(splitInsert[5]));
+                        Integer.parseInt(splitInsert[5]));
                 break;
             case "electronics":
                 transactionType = TransType.ELECT;
                 transactionItem = new Electronics(
                         splitInsert[2], Double.parseDouble(splitInsert[3]), Integer.parseInt(splitInsert[4]),
-                        Double.parseDouble(splitInsert[5]), splitInsert[6].matches("F"), splitInsert[7]);
+                        Integer.parseInt(splitInsert[5]), splitInsert[6].matches("F"), splitInsert[7]);
                 break;
             case "groceries":
                 transactionType = TransType.GROCERY;
                 transactionItem = new Grocery(
                         splitInsert[2], Double.parseDouble(splitInsert[3]), Integer.parseInt(splitInsert[4]),
-                        Double.parseDouble(splitInsert[5]), splitInsert[6].matches("P"));
+                        Integer.parseInt(splitInsert[5]), splitInsert[6].matches("P"));
                 break;
         }
     }

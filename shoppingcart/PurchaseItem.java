@@ -24,7 +24,7 @@ public class PurchaseItem {
     protected double salesTax;
     protected double shippingCost;
     protected int quantity;
-    protected double weight;
+    protected int weight;
     protected boolean isPremium;
     protected final double TAX_RATE = 0.1, PREMIUM_RATE = 0.2, SHIPPING_RATE = 20;
 
@@ -36,7 +36,7 @@ public class PurchaseItem {
         this.name = "Unknown";
         this.price = 0.00;
         this.quantity = 00;
-        this.weight = 0.0;
+        this.weight = 0;
     }
 
     /**
@@ -47,7 +47,7 @@ public class PurchaseItem {
      * @param itemQuantity Item quantity.
      * @param itemWeight   Item weight.
      */
-    public PurchaseItem(String itemName, double itemPrice, int itemQuantity, double itemWeight) {
+    public PurchaseItem(String itemName, double itemPrice, int itemQuantity, int itemWeight) {
         this.name = itemName;
         this.price = itemPrice;
         this.quantity = itemQuantity;
