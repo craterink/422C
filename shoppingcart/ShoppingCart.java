@@ -10,6 +10,7 @@ package shoppingcart;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Class that represents a shopping cart composed of any number of items.
@@ -61,6 +62,7 @@ public class ShoppingCart {
             case ELECT: //insert electronics
             case GROCERY: //insert groceries
                 cart.add(transItem);
+                Collections.sort(cart);
                 System.out.println("Added " + transItem.name + " to cart.");
                 break;
             case UPDATE: //update

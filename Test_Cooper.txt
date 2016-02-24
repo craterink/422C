@@ -1,0 +1,16 @@
+insert 
+askfdjgbasf
+
+     
+askjg insert 
+insert clothing cabbage 2.00 5 1 NP
+insert electronics shirt 20.50 1 1
+insert grocery PS3 300 1 5 F NM
+update
+search   
+search ///31
+search blah324
+search 
+update 32 shirt
+insert electronics PS3 300 1 5 F ZZ
+delete blah

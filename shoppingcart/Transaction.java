@@ -44,10 +44,10 @@ public class Transaction {
     /**
      * Regex matching an insert transaction
      */
-    private static final String INSERT_REGEX = "insert ((clothing [a-z0-9]+ [0-9]+(\\.[0-9]{1,2})? "
-    					+ "[0-9]+ [0-9]+)|(electronics [a-z0-9]+ [0-9]+(\\.[0-9]{1,2})? [0-9]+ [0-9]+ N?F "
-    					+ "(" + STATES_REGEX + "))|(groceries [a-z0-9]+ [0-9]+(\\.[0-9]{1,2})? [0-9]+ [0-9]"
-    							+ "+ N?P)) ?";
+    private static final String INSERT_REGEX = "insert ("
+    		+ "(clothing [^ ]+ [0-9]+(\\.[0-9]{1,2})? [0-9]+(\\.0+)? [0-9]+(\\.0+)?)|"
+    		+ "(electronics [^ ]+ [0-9]+(\\.[0-9]{1,2})? [0-9]+(\\.0+)? [0-9]+(\\.0+)? N?F (" + STATES_REGEX + "))|"
+    		+ "(groceries [^ ]+ [0-9]+(\\.[0-9]{1,2})? [0-9]+(\\.0+)? [0-9]+(\\.0+)? N?P)) ?";
 
     /**
      * Regex matching a delete transaction
@@ -112,13 +112,10 @@ public class Transaction {
             //get rid of any whitespace that isn't a single space
             transactionStr.replaceAll("[\\t ]+", " ");
             if (transactionStr.startsWith(" ")) transactionStr.replaceFirst(" ", "");
-            if (!transactionStr.toLowerCase().matches(PRINT_REGEX)) {
-                //split using single space as delimiter
-                type = transactionStr.substring(BEGIN_INDEX, transactionStr.indexOf(" "));
-            } else{
-                //if a print transaction, just parse it and then return
-                parsePrint(transactionStr);
-                return;
+            if(transactionStr.indexOf(" ") < BEGIN_INDEX) {
+            	type = transactionStr;
+            } else {
+            	type = transactionStr.substring(BEGIN_INDEX, transactionStr.indexOf(" "));
             }
             //if empty transaction is invalid
             switch (type.toLowerCase()) {
@@ -143,6 +140,9 @@ public class Transaction {
                         parseSearch(transactionStr);
                     }
                     break;
+                case "print":
+                   parsePrint(transactionStr);
+                   break;
                 case "update":
                     if (!transactionStr.toLowerCase().matches(UPDATE_REGEX))
                         throw new InvalidTransactionException(transactionStr);
@@ -153,8 +153,8 @@ public class Transaction {
                 default:
                     throw new InvalidTransactionException(transactionStr);
             }
-        } catch (InvalidTransactionException i) {
-            i.printError();
+        } catch (InvalidTransactionException ite) {
+            ite.printError();
         }
     }
 
@@ -204,20 +204,20 @@ public class Transaction {
             case "clothing":
                 transactionType = TransType.CLOTH;
                 transactionItem = new Clothing(
-                        splitInsert[2], Double.parseDouble(splitInsert[3]), Integer.parseInt(splitInsert[4]),
-                        Integer.parseInt(splitInsert[5]));
+                        splitInsert[2], Double.parseDouble(splitInsert[3]), (int)Double.parseDouble(splitInsert[4]),
+                        (int)Double.parseDouble(splitInsert[5]));
                 break;
             case "electronics":
                 transactionType = TransType.ELECT;
                 transactionItem = new Electronics(
-                        splitInsert[2], Double.parseDouble(splitInsert[3]), Integer.parseInt(splitInsert[4]),
-                        Integer.parseInt(splitInsert[5]), splitInsert[6].matches("F"), splitInsert[7]);
+                        splitInsert[2], Double.parseDouble(splitInsert[3]), (int)Double.parseDouble(splitInsert[4]),
+                        (int)Double.parseDouble(splitInsert[5]), splitInsert[6].matches("F"), splitInsert[7]);
                 break;
             case "groceries":
                 transactionType = TransType.GROCERY;
                 transactionItem = new Grocery(
-                        splitInsert[2], Double.parseDouble(splitInsert[3]), Integer.parseInt(splitInsert[4]),
-                        Integer.parseInt(splitInsert[5]), splitInsert[6].matches("P"));
+                        splitInsert[2], Double.parseDouble(splitInsert[3]), (int)Double.parseDouble(splitInsert[4]),
+                        (int)Double.parseDouble(splitInsert[5]), splitInsert[6].matches("P"));
                 break;
         }
     }

@@ -12,10 +12,10 @@ import java.text.DecimalFormat;
 
 /**
  * Super class representing any item that can go in the shopping cart.
- *
+ * Can be sorted by its name.
  * @author Aria Pahlavan - Cooper Raterink
  */
-public class PurchaseItem {
+public class PurchaseItem implements Comparable<PurchaseItem>{
     /**
      * Item details.
      */
@@ -113,5 +113,15 @@ public class PurchaseItem {
                 + weight + "\t"
                 + "$" + price + "\n");
     }
+
+	@Override
+	/**
+	 * Compare PurchaseItems by comparing their names.
+	 */
+	public int compareTo(PurchaseItem otherPurchaseItem) {
+		return this.name.compareTo(otherPurchaseItem.name);
+	}
+    
+    
 
 }
