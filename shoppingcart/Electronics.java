@@ -39,8 +39,6 @@ public class Electronics extends PurchaseItem
 	 */
 	public Electronics() {
 		super();
-		//assuming item is not fragile
-		isFragile = false;
 	}
 
 	/**
