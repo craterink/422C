@@ -67,7 +67,7 @@ public class ShoppingCart {
                 break;
             case UPDATE: //update
                 for (PurchaseItem item : cart) {
-                    if (transItem.name == item.name) {
+                    if (transItem.name.equals(item.name)) {
                         item.updateItem(transItem);
                         System.out.println("Updated: " + item.name + "\t" + item.quantity);
                         break; //Only update the first occurrence of an item
@@ -88,7 +88,7 @@ public class ShoppingCart {
             case SEARCH: //search
                 int searchResult = 0;
                 for (PurchaseItem item : cart) {
-                    if (transItem.name == item.name)
+                    if (transItem.name.equals(item.name))
                         searchResult += 1;
                 }
                 System.out.println(searchResult + " " + transItem.name + "(s) were found.");

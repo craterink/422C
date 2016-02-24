@@ -1,46 +1,46 @@
 insert clothing LG_TV40" 0 0 0
-insert clothing smalShirtSize2 5 1 2
-insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000
-insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000
-insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000
-insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000
-update LowFatMilk100 0.00
-insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000
-update LowFatMilk100 0.00
-insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000
-update LowFatMilk100 0.00
-update LowFatMilk100 0.00
-update LowFatMilk100 0.00
-insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000
+insert electronics smalShirtSize2 5 1 2 F TX
+insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000 P
+insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000 P
+insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000 P
+insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000 P
+update LowFatMilk100 0
+insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000 P
+update LowFatMilk100 0
+insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000 P
 update LowFatMilk100 0.00
 update LowFatMilk100 0.00
 update LowFatMilk100 0.00
-insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000
+insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000 NP
+update LowFatMilk100 0.00
+update LowFatMilk100 0.00
+update LowFatMilk100 0.00
+insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000 NP
 update LowFatMilk100 0.00
 update LowFatMilk100 0.00
 update LowFatMilk100 1.00
-insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000
+insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000 NP
 update LowFatMilk100 1.00
 update LowFatMilk100 1.00
 update LowFatMilk100 1.00
 update LowFatMilk100 1.00
-insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000
+insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000 P
 update LowFatMilk100 1.00
 update LowFatMilk100 1.00
 update LowFatMilk100 1.00
-insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000
-update LowFatMilk100 1.00
-update LowFatMilk100 1.00
-update LowFatMilk100 1.00
-update LowFatMilk100 1.00
+insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000 P
 update LowFatMilk100 1.00
 update LowFatMilk100 1.00
 update LowFatMilk100 1.00
 update LowFatMilk100 1.00
 update LowFatMilk100 1.00
-insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000
-insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000
-insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000
+update LowFatMilk100 1.00
+update LowFatMilk100 1.00
+update LowFatMilk100 1.00
+update LowFatMilk100 1.00
+insert groceries LowFatMilk100 00000.50 605100.0020 10202.00000 P
+insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000 P
+insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000 P
 insert electronics PS3 300 1 5 F NM 
 insert groceries cabbage 2.00 5 1 NP
 insert groceries cabbage 2.00 5 1 P
