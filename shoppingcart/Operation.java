@@ -113,14 +113,14 @@ public class Operation {
      * the shopping cart can perform
      * @throws InvalidOperationException When an invalid exception was entered
      */
-    public Operation(String operationStr) throws InvalidOperationException {
+    public Operation(String operationStr) {
         final int BEGIN_INDEX = 0;
         String type;
         try {
             //get rid of any whitespace that isn't a single space
-            operationStr.replaceAll("[\\t ]+", " ");
+            operationStr = operationStr.replaceAll("[\\t ]+", " ");
             //get rid of starting space
-            if (operationStr.startsWith(" ")) operationStr.replaceFirst(" ", "");
+            if (operationStr.startsWith(" ")) operationStr = operationStr.replaceFirst(" ", "");
             //properly assign operation type string to type variable, ignoring weird 
             if(operationStr.indexOf(" ") < BEGIN_INDEX) {
             	type = operationStr;

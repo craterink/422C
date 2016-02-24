@@ -79,8 +79,8 @@ public class ShoppingCart {
                 long deletionCounter = 0;
                 for (int i =0; i < cart.size(); i++) {
                     if (operationItem.name.equals(cart.get(i).name)) {
-                        cart.remove(cart.get(i));
-                        deletionCounter += cart.get(i).quantity;
+                  	  deletionCounter += cart.get(i).quantity; 
+                  	  cart.remove(cart.get(i--)); //subtract iterator to account for one less item
                     }
                 }
                 //outputting number of deletions
@@ -97,6 +97,9 @@ public class ShoppingCart {
             case PRINT: //print
                 print();
                 break;
+            case NONE:
+            	 System.out.println("Operation is invalid. Cannot perform");
+            	 break;
         }
 
     }
@@ -105,15 +108,22 @@ public class ShoppingCart {
      * Print a cart receipt for final checkout.
      */
     public void print() {
-        System.out.println("Shopping Cart Items:");
-        System.out.println("Name\tQuantity\tWeight\tPrice");
-        //Sum total prices of cart items
+        System.out.println("\n=================== Aria Ready2Shop: Shopping Cart Items ====================\n");
         BigDecimal total = BigDecimal.valueOf(0.00);
-        for (PurchaseItem item : cart) {
-            item.printItemAttributes();
-            total = total.add(item.calculatePrice());
+        if(cart.size() == 0) {
+      	  System.out.println("No items in the cart.");
         }
-        System.out.println("======>>>> Shopping Cart Total Price: $" +
+        else {
+           //Sum total prices of cart items
+           for (PurchaseItem item : cart) {
+               item.printItemAttributes();
+               total = total.add(item.calculatePrice());
+           }
+        }
+        System.out.println("-----------------------------------------------------------------------------\n"
+      		  	+ "Shopping Cart Total Price: $" +
                 (new DecimalFormat("0.00")).format(total));
+        System.out.println("\nThank you for shopping at Aria Ready2Shop!");
+        System.out.println("=============================================================================\n");
     }
 }

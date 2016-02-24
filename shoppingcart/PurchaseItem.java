@@ -104,10 +104,12 @@ public class PurchaseItem implements Comparable<PurchaseItem>{
      * Prints to the console this purchase item's member variables.
      */
     public void printItemAttributes() {
-        System.out.println(name + "\t"
-                + quantity + "\t"
-                + weight + "\t"
-                + "$" + (new DecimalFormat("0.00")).format(price) + "\n");
+        System.out.println(name + "     "
+      		    + "$" + (new DecimalFormat("0.00")).format(price) + "    "
+                + "qty: " + quantity + "     "
+                + "wt: " + weight + "     "
+                + "ship: " + (isPremium ? "Premium" : "Standard") + "    "
+                + "Item Total: $" + (new DecimalFormat("0.00")).format(calculatePrice()) + "\n");
     }
 
 	@Override
