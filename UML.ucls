@@ -1,124 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.9" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="assignment3.A3Driver" project="Ass3_ShoppingCart" 
-    file="/Ass3_ShoppingCart/src/assignment3/A3Driver.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="116" width="152" x="263" y="156"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="2" language="java" name="shoppingcart.Transaction" project="Ass3_ShoppingCart" 
+  <class id="1" language="java" name="shoppingcart.Transaction" project="Ass3_ShoppingCart" 
     file="/Ass3_ShoppingCart/src/shoppingcart/Transaction.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="396" width="294" x="664" y="98"/>    
+    <position height="-1" width="-1" x="149" y="208"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="shoppingcart.PurchaseItem" project="Ass3_ShoppingCart" 
+  <class id="2" language="java" name="shoppingcart.PurchaseItem" project="Ass3_ShoppingCart" 
     file="/Ass3_ShoppingCart/src/shoppingcart/PurchaseItem.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="416" width="294" x="886" y="534"/>    
+    <position height="-1" width="-1" x="626" y="214"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="shoppingcart.Clothing" project="Ass3_ShoppingCart" 
+  <class id="3" language="java" name="shoppingcart.Clothing" project="Ass3_ShoppingCart" 
     file="/Ass3_ShoppingCart/src/shoppingcart/Clothing.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="116" width="256" x="590" y="990"/>    
+    <position height="-1" width="-1" x="639" y="572"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="shoppingcart.ShoppingCart" project="Ass3_ShoppingCart" 
+  <class id="4" language="java" name="shoppingcart.ShoppingCart" project="Ass3_ShoppingCart" 
     file="/Ass3_ShoppingCart/src/shoppingcart/ShoppingCart.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="176" width="295" x="998" y="98"/>    
+    <position height="-1" width="-1" x="959" y="91"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="shoppingcart.Electronics" project="Ass3_ShoppingCart" 
+  <class id="5" language="java" name="shoppingcart.Electronics" project="Ass3_ShoppingCart" 
     file="/Ass3_ShoppingCart/src/shoppingcart/Electronics.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="236" width="381" x="886" y="990"/>    
+    <position height="-1" width="-1" x="954" y="617"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="7" language="java" name="shoppingcart.TransType" project="Ass3_ShoppingCart" 
+  <enumeration id="6" language="java" name="shoppingcart.TransType" project="Ass3_ShoppingCart" 
     file="/Ass3_ShoppingCart/src/shoppingcart/Transaction.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="256" width="182" x="664" y="534"/>    
+    <position height="-1" width="-1" x="109" y="617"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="8" language="java" name="shoppingcart.Grocery" project="Ass3_ShoppingCart" 
+  <class id="7" language="java" name="shoppingcart.Grocery" project="Ass3_ShoppingCart" 
     file="/Ass3_ShoppingCart/src/shoppingcart/Grocery.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="176" width="314" x="1307" y="990"/>    
+    <position height="-1" width="-1" x="987" y="365"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="shoppingcart.errors.InvalidTransactionException" project="Ass3_ShoppingCart" 
+  <class id="8" language="java" name="shoppingcart.errors.InvalidTransactionException" project="Ass3_ShoppingCart" 
     file="/Ass3_ShoppingCart/src/shoppingcart/errors/InvalidTransactionException.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="136" width="271" x="213" y="314"/>    
+    <position height="-1" width="-1" x="364" y="582"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
+  <generalization id="9">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
   <generalization id="10">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="3"/>  
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="2"/>  
   </generalization>  
   <association id="11">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="12" name="cart"/>      
-      <multiplicity id="13" minimum="0" maximum="2147483647"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="12" name="transactionType">        
+        <position height="0" width="0" x="-646" y="-45"/>      
+      </attribute>      
+      <multiplicity id="13" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-646" y="-45"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
+    <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="14">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="15" name="transactionItem"/>      
-      <multiplicity id="16" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="15" name="cart">        
+        <position height="0" width="0" x="-407" y="-528"/>      
+      </attribute>      
+      <multiplicity id="16" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-407" y="-528"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
+    <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="17">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="18" name="transactionType"/>      
-      <multiplicity id="19" minimum="0" maximum="1"/>    
+  <generalization id="17">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <association id="18">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="19" name="transactionItem">        
+        <position height="0" width="0" x="-407" y="-528"/>      
+      </attribute>      
+      <multiplicity id="20" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-407" y="-528"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
+    <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="20">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <generalization id="21">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

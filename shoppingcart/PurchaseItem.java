@@ -111,7 +111,7 @@ public class PurchaseItem implements Comparable<PurchaseItem>{
         System.out.println(name + "\t"
                 + quantity + "\t"
                 + weight + "\t"
-                + "$" + price + "\n");
+                + "$" + (new DecimalFormat("0.00")).format(price) + "\n");
     }
 
 	@Override

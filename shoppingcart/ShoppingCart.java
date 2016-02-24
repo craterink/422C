@@ -105,6 +105,7 @@ public class ShoppingCart {
      */
     public void print() {
         System.out.println("Shopping Cart Items:\n");
+        //Sum total prices of cart items
         double total = 0;
         for (PurchaseItem item : cart) {
             item.printItemAttributes();
