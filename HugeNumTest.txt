@@ -1,0 +1,3 @@
+insert clothing smalShirt 20.50 1,500,000.00 500.00
+insert electronics PS4 400 5000 1000 F TX
+insert groceries cilantero 0.25 1000 2 P

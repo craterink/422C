@@ -8,3 +8,6 @@ delete cabbage
 print
 
 
+insert clothing smalShirt 20.50 1,500,000.00 500.00
+insert electronics PS4 400.00 5,000 1,000 NF NM
+insert groceries cilantero 20.25 1,000 2 P
