@@ -7,6 +7,8 @@
  */
 package shoppingcart;
 
+import java.math.BigDecimal;
+
 /**
  * Class representing a clothing item that could go in the shopping cart.
  * Special features: Premium shipping not available, otherwise standard purchase-item rules apply.
@@ -22,7 +24,7 @@ public class Clothing extends PurchaseItem
 	 * @param itemQuantity Item quantity.
 	 * @param itemWeight Item weight.
 	 */
-	public Clothing(String itemName, double itemPrice, int itemQuantity, int itemWeight) {
+	public Clothing(String itemName, BigDecimal itemPrice, int itemQuantity, int itemWeight) {
 		super(itemName, itemPrice, itemQuantity, itemWeight);
 		//premium shipping is not available
 		isPremium = false;
@@ -34,6 +36,6 @@ public class Clothing extends PurchaseItem
 	 */
 	public void calculateShipCost() {
 		//Calculates regular shipping cost
-		shippingCost = (SHIPPING_RATE*(weight))*quantity;
+		shippingCost = (SHIPPING_RATE.multiply(BigDecimal.valueOf(weight))).multiply(BigDecimal.valueOf(quantity));
 	}
 }

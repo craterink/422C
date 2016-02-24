@@ -8,6 +8,7 @@
  */
 package shoppingcart;
 
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
 /**
@@ -20,13 +21,13 @@ public class PurchaseItem implements Comparable<PurchaseItem>{
      * Item details.
      */
     protected String name;
-    protected double price;
-    protected double salesTax;
-    protected double shippingCost;
-    protected int quantity;
-    protected int weight;
+    protected BigDecimal price;
+    protected BigDecimal salesTax;
+    protected BigDecimal shippingCost;
+    protected long quantity;
+    protected long weight;
     protected boolean isPremium;
-    protected final double TAX_RATE = 0.1, PREMIUM_RATE = 0.2, SHIPPING_RATE = 20;
+    protected final BigDecimal TAX_RATE  = BigDecimal.valueOf(0.1), PREMIUM_RATE = BigDecimal.valueOf(0.2), SHIPPING_RATE = BigDecimal.valueOf(20);
 
 
     /**
@@ -34,7 +35,7 @@ public class PurchaseItem implements Comparable<PurchaseItem>{
      */
     public PurchaseItem() {
         this.name = "Unknown";
-        this.price = 0.00;
+        this.price = new BigDecimal(0.00);
         this.quantity = 00;
         this.weight = 0;
     }
@@ -47,7 +48,7 @@ public class PurchaseItem implements Comparable<PurchaseItem>{
      * @param itemQuantity Item quantity.
      * @param itemWeight   Item weight.
      */
-    public PurchaseItem(String itemName, double itemPrice, int itemQuantity, int itemWeight) {
+    public PurchaseItem(String itemName, BigDecimal itemPrice, int itemQuantity, int itemWeight) {
         this.name = itemName;
         this.price = itemPrice;
         this.quantity = itemQuantity;
@@ -69,13 +70,13 @@ public class PurchaseItem implements Comparable<PurchaseItem>{
      *
      * @return Final price of item.
      */
-    public double calculatePrice() {
+    public BigDecimal calculatePrice() {
         //First calculate the shipping cost and the sales tax
         calculateShipCost();
         calculateTax();
 
         //calculate the price, then add appropriate shipping cost and sales tax
-        return price * (double) quantity + shippingCost + salesTax;
+        return (price.multiply(BigDecimal.valueOf(quantity)).add(shippingCost)).add(salesTax);
     }
 
 
@@ -90,18 +91,18 @@ public class PurchaseItem implements Comparable<PurchaseItem>{
                 + "=> Final Price: $" + (new DecimalFormat("0.00")).format(calculatePrice())
                 + "\n");
         //Calculates regular shipping cost
-        shippingCost = (SHIPPING_RATE * (weight)) * quantity;
+        shippingCost = (SHIPPING_RATE.multiply(BigDecimal.valueOf(weight))).multiply(BigDecimal.valueOf(quantity));
 
         //If premium shipping requested, add %20
         if (isPremium)
-            shippingCost += PREMIUM_RATE * shippingCost;
+            shippingCost = shippingCost.add(shippingCost.multiply(PREMIUM_RATE));
     }
 
     /**
      * Calculates this item's sales tax.
      */
     public void calculateTax() {
-        salesTax = price * TAX_RATE;
+        salesTax = price.multiply(TAX_RATE);
     }
 
     /**

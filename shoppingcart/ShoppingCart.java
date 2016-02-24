@@ -75,21 +75,21 @@ public class ShoppingCart {
                 }
                 break;
             case DEL: //delete
-                int deletionCounter = 0;
+                long deletionCounter = 0;
                 for (int i =0; i < cart.size(); i++) {
-                    if (transItem.name == cart.get(i).name) {
+                    if (transItem.name.equals(cart.get(i).name)) {
                         cart.remove(cart.get(i));
-                        deletionCounter += 1;
+                        deletionCounter += cart.get(i).quantity;
                     }
                 }
                 //outputting number of deletions
-                System.out.println(deletionCounter + " " + transItem.name + " were deleted.");
+                System.out.println(deletionCounter + " " + transItem.name + "(s) were deleted.");
                 break;
             case SEARCH: //search
-                int searchResult = 0;
+                long searchResult = 0;
                 for (PurchaseItem item : cart) {
                     if (transItem.name.equals(item.name))
-                        searchResult += 1;
+                        searchResult += item.quantity;
                 }
                 System.out.println(searchResult + " " + transItem.name + "(s) were found.");
                 break;

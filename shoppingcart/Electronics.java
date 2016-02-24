@@ -7,6 +7,8 @@
  */
 package shoppingcart;
 
+import java.math.BigDecimal;
+
 /**
  * Class representing an electronics purchase item that could go in the shopping cart.
  * Fragile or Non-fragile: fragile require premium shipping.
@@ -50,7 +52,7 @@ public class Electronics extends PurchaseItem
 	 * @param isItemFragile Is the item fragile?
 	 * @param itemStateName State the item is being delivered to (for sales tax calculation)
 	 */
-	public Electronics(String itemName, double itemPrice, int itemQuantity, int itemWeight, boolean isItemFragile, String itemStateName) {
+	public Electronics(String itemName, BigDecimal itemPrice, int itemQuantity, int itemWeight, boolean isItemFragile, String itemStateName) {
 		super(itemName, itemPrice, itemQuantity, itemWeight);
 		isFragile = isItemFragile;
 		stateName = itemStateName;
@@ -63,11 +65,11 @@ public class Electronics extends PurchaseItem
 	 */
 	public void calculateShipCost() {
 		//Calculates regular shipping cost
-		shippingCost = (SHIPPING_RATE*(weight))*quantity;
+		shippingCost = (SHIPPING_RATE.multiply(BigDecimal.valueOf(weight))).multiply(BigDecimal.valueOf(quantity));
 
 		//If fragile items or premium shipping requested, add %20
 		if(isPremium || isFragile)
-			shippingCost += PREMIUM_RATE*shippingCost;
+			shippingCost = shippingCost.add(PREMIUM_RATE.multiply(shippingCost));
 	}
 
 	@Override
@@ -76,9 +78,9 @@ public class Electronics extends PurchaseItem
 	 */
 	public void calculateTax() {
 		if(!isTaxExempt())
-			salesTax = price*TAX_RATE;
+			salesTax = price.multiply(TAX_RATE);
 		else
-			salesTax = 0.00;
+			salesTax = BigDecimal.valueOf(0.00);
 	}
 
 	/**

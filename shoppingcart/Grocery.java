@@ -8,6 +8,8 @@
 package shoppingcart;
 
 
+import java.math.BigDecimal;
+
 /**
  * Class representing a grocery purchase item that can be added to the shopping cart
  * Can be perishable or nonperishable
@@ -42,7 +44,7 @@ public class Grocery extends PurchaseItem {
 	 * @param itemWeight       Item weight.
 	 * @param isItemPerishable Is this item perishable?
 	 */
-	public Grocery(String itemName, double itemPrice, int itemQuantity, int itemWeight, boolean isItemPerishable) {
+	public Grocery(String itemName, BigDecimal itemPrice, int itemQuantity, int itemWeight, boolean isItemPerishable) {
 		super(itemName, itemPrice, itemQuantity, itemWeight);
 	}
 
@@ -53,11 +55,11 @@ public class Grocery extends PurchaseItem {
 	 */
 	public void calculateShipCost() {
 		//Calculates regular shipping cost
-		shippingCost = (SHIPPING_RATE * (weight)) * quantity;
+		shippingCost = (SHIPPING_RATE.multiply(BigDecimal.valueOf(weight))).multiply(BigDecimal.valueOf(quantity));
 
 		//If premium shipping requested, add %20
 		if (isPremium || isPerishable)
-			shippingCost += PREMIUM_RATE * shippingCost;
+			shippingCost = shippingCost.add( PREMIUM_RATE.multiply(shippingCost));
 	}
 
 	@Override
@@ -65,7 +67,7 @@ public class Grocery extends PurchaseItem {
 	 * Groceries incur no taxes.
 	 */
 	public void calculateTax() {
-		salesTax = 0.00;
+		salesTax = BigDecimal.valueOf(0.00);
 	}
 
 
