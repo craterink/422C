@@ -48,11 +48,12 @@ public class PurchaseItem implements Comparable<PurchaseItem>{
      * @param itemQuantity Item quantity.
      * @param itemWeight   Item weight.
      */
-    public PurchaseItem(String itemName, BigDecimal itemPrice, long itemQuantity, long itemWeight) {
+    public PurchaseItem(String itemName, BigDecimal itemPrice, long itemQuantity, long itemWeight, boolean isPremium) {
         this.name = itemName;
         this.price = itemPrice;
         this.quantity = itemQuantity;
         this.weight = itemWeight;
+        this.isPremium = isPremium;
     }
 
     /**
