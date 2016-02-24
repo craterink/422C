@@ -52,24 +52,24 @@ public class ShoppingCart {
     }
 
     /**
-     * Performs a transaction on this cart based on a transaction object.
+     * Performs a operation on this cart based on a operation object.
      *
-     * @param trans The Transaction to perform on this cart.
+     * @param operation The Operation to perform on this cart.
      */
-    public void performTransaction(Transaction trans) {
-        PurchaseItem transItem = trans.getTransactionItem();
-        switch (trans.getTransactionType()) {
+    public void performOperation(Operation operation) {
+        PurchaseItem operationItem = operation.getOperationItem();
+        switch (operation.getOperationType()) {
             case CLOTH: //insert clothing
             case ELECT: //insert electronics
             case GROCERY: //insert groceries
-                cart.add(transItem);
+                cart.add(operationItem);
                 Collections.sort(cart);
-                System.out.println("Added " + transItem.name + " to cart.");
+                System.out.println("Added " + operationItem.name + " to cart.");
                 break;
             case UPDATE: //update
                 for (PurchaseItem item : cart) {
-                    if (transItem.name.equals(item.name)) {
-                        item.updateItem(transItem);
+                    if (operationItem.name.equals(item.name)) {
+                        item.updateItem(operationItem);
                         System.out.println("Updated: " + item.name + "\t" + item.quantity);
                         break; //Only update the first occurrence of an item
                     }
@@ -78,21 +78,21 @@ public class ShoppingCart {
             case DEL: //delete
                 long deletionCounter = 0;
                 for (int i =0; i < cart.size(); i++) {
-                    if (transItem.name.equals(cart.get(i).name)) {
+                    if (operationItem.name.equals(cart.get(i).name)) {
                         cart.remove(cart.get(i));
                         deletionCounter += cart.get(i).quantity;
                     }
                 }
                 //outputting number of deletions
-                System.out.println(deletionCounter + " " + transItem.name + "(s) were deleted.");
+                System.out.println(deletionCounter + " " + operationItem.name + "(s) were deleted.");
                 break;
             case SEARCH: //search
                 long searchResult = 0;
                 for (PurchaseItem item : cart) {
-                    if (transItem.name.equals(item.name))
+                    if (operationItem.name.equals(item.name))
                         searchResult += item.quantity;
                 }
-                System.out.println(searchResult + " " + transItem.name + "(s) were found.");
+                System.out.println(searchResult + " " + operationItem.name + "(s) were found.");
                 break;
             case PRINT: //print
                 print();

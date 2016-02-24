@@ -1,7 +1,7 @@
 package assignment3;
 
 import shoppingcart.*;
-import shoppingcart.errors.InvalidTransactionException;
+import shoppingcart.errors.InvalidOperationException;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -16,13 +16,13 @@ import java.io.IOException;
 public class A3Driver 
 	{
 	/**
-	 * Performs all transactions from the input file and then prints a "receipt"
+	 * Performs all operations from the input file and then prints a "receipt"
 	 * representing the final shopping cart state.
-	 * @param args Transaction file path/name is first argument.
+	 * @param args operation file path/name is first argument.
 	 * @throws IOException File error
-	 * @throws InvalidTransactionException If invalid transaction is entered //TODO
+	 * @throws InvalidOperationException If invalid operation is entered //TODO
 	 */
-	  public static void main(String[] args) throws IOException, InvalidTransactionException 
+	  public static void main(String[] args) throws IOException, InvalidOperationException 
 	  {
 		  //Get ready to read the file specified in the args
 		  FileReader freader = new FileReader(args[0]);
@@ -34,7 +34,7 @@ public class A3Driver
 		  {
 			  //make sure there are characters in the line first
 			  if(line.trim().length() > 0)
-				cart.performTransaction(new Transaction(line));
+				cart.performOperation(new Operation(line));
 		  }
 		//print a "receipt"
 		  cart.print();
