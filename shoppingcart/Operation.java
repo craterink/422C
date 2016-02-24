@@ -13,22 +13,6 @@ import shoppingcart.errors.InvalidOperationException;
 import java.math.BigDecimal;
 
 /**
- * Enumerated type representing different operation types
- * @author Aria Pahlavan, Cooper Raterink
- *
- */
-enum OperationType {
-    NONE,        //invalid
-    CLOTH,        //insert clothing
-    ELECT,        //insert electronics
-    GROCERY,    //insert groceries
-    DEL,        //delete item
-    SEARCH,        //search item
-    PRINT,        //print all
-    UPDATE        //update item
-}
-
-/**
  * Class that represents a operation for the shopping cart to handle.
  * Could be an insert, delete, etc.
  * @author Aria Pahlavan, Cooper Raterink
@@ -186,6 +170,7 @@ public class Operation {
         } catch (InvalidOperationException ite) {
       	   //the operation must be invalid because there was an error while parsing
             ite.printError();
+            operationType = OperationType.NONE;
         }
     }
 

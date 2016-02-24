@@ -34,7 +34,11 @@ public class A3Driver
 		  {
 			  //make sure there are characters in the line first
 			  if(line.trim().length() > 0)
-				cart.performOperation(new Operation(line));
+			  {
+				  Operation op = new Operation(line);
+				  if(op.getOperationType() != OperationType.NONE)
+					  cart.performOperation(op);
+			  }
 		  }
 		//print a "receipt"
 		  cart.print();
