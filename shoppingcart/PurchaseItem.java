@@ -76,7 +76,8 @@ public class PurchaseItem implements Comparable<PurchaseItem>{
         calculateTax();
 
         //calculate the price, then add appropriate shipping cost and sales tax
-        return (price.multiply(BigDecimal.valueOf(quantity)).add(shippingCost)).add(salesTax);
+        BigDecimal finalPrice = (price.multiply(BigDecimal.valueOf(quantity))).add(shippingCost).add(salesTax);
+        return finalPrice;
     }
 
 
@@ -84,12 +85,6 @@ public class PurchaseItem implements Comparable<PurchaseItem>{
      * Calculates this item's shipping cost.
      */
     public void calculateShipCost() {
-        System.out.println("name: " + name + "\n"
-                + "price: $" + (new DecimalFormat("0.00")).format(price) + "\n"
-                + "quantity: " + quantity + " units\n"
-                + "weight: " + weight
-                + "=> Final Price: $" + (new DecimalFormat("0.00")).format(calculatePrice())
-                + "\n");
         //Calculates regular shipping cost
         shippingCost = (SHIPPING_RATE.multiply(BigDecimal.valueOf(weight))).multiply(BigDecimal.valueOf(quantity));
 

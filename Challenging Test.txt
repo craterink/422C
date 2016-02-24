@@ -1,4 +1,6 @@
 insert clothing LG_TV40" 0 0 0
+insert electronics PS4 400.00 5000 1000 NF NM
+insert groceries cilantero .25 1000 2 P
 insert electronics smalShirtSize2 5 1 2 F TX
 insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000 P
 insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000 P

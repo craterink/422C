@@ -45,8 +45,8 @@ public class Transaction {
     /**
      * Regex matching a correct transaction input integer.
      */
-    private static final String INTEGER_REGEX = "(([0-9]{1,3}(,[0-9]{3})*(\\.0*)?)|"
-    															+ "([0-9]{0,3}(,[0-9]{3})*(\\.0+)))";
+    private static final String INTEGER_REGEX = "(([0-9]{1,3}((,[0-9]{3})+|[0-9]*)(\\.0*)?)|"
+    															+ "([0-9]{0,3}((,[0-9]{3})+|[0-9]*)(\\.0+)))";
     
     /**
      * Regex matching a correct transaction price input.
@@ -204,7 +204,7 @@ public class Transaction {
     private void parseUpdate(String updateStr) {
         transactionType = TransType.UPDATE;
         transactionItem = new PurchaseItem(
-                updateStr.split(" ")[1], BigDecimal.valueOf(Double.parseDouble(updateStr.split(" ")[2])), 0, 0);
+                updateStr.split(" ")[1], BigDecimal.valueOf(0), (long)Double.parseDouble(updateStr.split(" ")[2]), 0);
     }
 
     /**

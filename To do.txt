@@ -1,7 +1,9 @@
 Change readme to address assumptions
 Write readme
+
 React to Mehtaab's email:
 overflow handling
+
 >>Cooper<< Push your updates. 
 Total price is always $0.00
 These two cases don't work:
