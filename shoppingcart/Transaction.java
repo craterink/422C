@@ -45,20 +45,20 @@ public class Transaction {
     /**
      * Regex matching a correct transaction input integer.
      */
-    private static final String INTEGER_REGEX = "([0-9]{1,3}(,[0-9]{3})*(\\.0*)?|"
-    															+ "[0-9]{0,3}(,[0-9]{3})*(\\.0+))";
+    private static final String INTEGER_REGEX = "(([0-9]{1,3}(,[0-9]{3})*(\\.0*)?)|"
+    															+ "([0-9]{0,3}(,[0-9]{3})*(\\.0+)))";
     
     /**
      * Regex matching a correct transaction price input.
      */
-    private static final String PRICE_REGEX = "(([0-9]{1,3}(,[0-9]{3})*(\\.[0-9]*)?)|"
-    														+ "([0-9]{0,3}(,[0-9]{3})*(\\.[0-9]+)))";
+    private static final String PRICE_REGEX = "(([0-9]{1,3}((,[0-9]{3})+|[0-9]*)"
+    		+ "(\\.[0-9]*)?)|([0-9]{0,3}((,[0-9]{3})+|[0-9]*)(\\.[0-9]+)))";
     
     /**
      * Regex matching an insert transaction
      */
     private static final String INSERT_REGEX = "insert ("
-    		+ "(clothing [^ ]+ " + PRICE_REGEX + " " + INTEGER_REGEX + " " + INTEGER_REGEX + "|"
+    		+ "(clothing [^ ]+ " + PRICE_REGEX + " " + INTEGER_REGEX + " " + INTEGER_REGEX + ")|"
     		+ "(electronics [^ ]+ " + PRICE_REGEX + " " + INTEGER_REGEX + " " + INTEGER_REGEX + " N?F (" + STATES_REGEX + "))|"
     		+ "(groceries [^ ]+ " + PRICE_REGEX + " " + INTEGER_REGEX + " " + INTEGER_REGEX + " N?P)) ?";
 
