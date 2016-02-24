@@ -88,7 +88,7 @@ public class Electronics extends PurchaseItem
 	 * @return boolean If tax exempt true, otherwise false.
 	 */
 	public boolean isTaxExempt() {
-		return stateName.matches(REGEX_SALESFREE);
+		return stateName.toUpperCase().matches(REGEX_SALESFREE);
 	}
 
 }

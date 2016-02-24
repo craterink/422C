@@ -44,10 +44,10 @@ public class Transaction {
     /**
      * Regex matching an insert transaction
      */
-    private static final String INSERT_REGEX = "insert ((clothing [a-z0-9]+ [0-9]+(\\.[0-9]{1,2})? "
-    					+ "[0-9]+ [0-9]+)|(electronics [a-z0-9]+ [0-9]+(\\.[0-9]{1,2})? [0-9]+ [0-9]+ N?F "
-    					+ "(" + STATES_REGEX + "))|(groceries [a-z0-9]+ [0-9]+(\\.[0-9]{1,2})? [0-9]+ [0-9]"
-    							+ "+ N?P)) ?";
+    private static final String INSERT_REGEX = "insert ("
+    		+ "(clothing [^ ]+ [0-9]+(\\.[0-9]{1,2})? [0-9]+(\\.0+)? [0-9]+(\\.0+)?)|"
+    		+ "(electronics [^ ]+ [0-9]+(\\.[0-9]{1,2})? [0-9]+(\\.0+)? [0-9]+(\\.0+)? N?F (" + STATES_REGEX + "))|"
+    		+ "(groceries [^ ]+ [0-9]+(\\.[0-9]{1,2})? [0-9]+(\\.0+)? [0-9]+(\\.0+)? N?P)) ?";
 
     /**
      * Regex matching a delete transaction
@@ -204,20 +204,20 @@ public class Transaction {
             case "clothing":
                 transactionType = TransType.CLOTH;
                 transactionItem = new Clothing(
-                        splitInsert[2], Double.parseDouble(splitInsert[3]), Integer.parseInt(splitInsert[4]),
-                        Integer.parseInt(splitInsert[5]));
+                        splitInsert[2], Double.parseDouble(splitInsert[3]), (int)Double.parseDouble(splitInsert[4]),
+                        (int)Double.parseDouble(splitInsert[5]));
                 break;
             case "electronics":
                 transactionType = TransType.ELECT;
                 transactionItem = new Electronics(
-                        splitInsert[2], Double.parseDouble(splitInsert[3]), Integer.parseInt(splitInsert[4]),
-                        Integer.parseInt(splitInsert[5]), splitInsert[6].matches("F"), splitInsert[7]);
+                        splitInsert[2], Double.parseDouble(splitInsert[3]), (int)Double.parseDouble(splitInsert[4]),
+                        (int)Double.parseDouble(splitInsert[5]), splitInsert[6].matches("F"), splitInsert[7]);
                 break;
             case "groceries":
                 transactionType = TransType.GROCERY;
                 transactionItem = new Grocery(
-                        splitInsert[2], Double.parseDouble(splitInsert[3]), Integer.parseInt(splitInsert[4]),
-                        Integer.parseInt(splitInsert[5]), splitInsert[6].matches("P"));
+                        splitInsert[2], Double.parseDouble(splitInsert[3]), (int)Double.parseDouble(splitInsert[4]),
+                        (int)Double.parseDouble(splitInsert[5]), splitInsert[6].matches("P"));
                 break;
         }
     }
