@@ -1,5 +1,4 @@
 Cooper:
-	-Analysis
 	-Algorithm
 	-Use case diagram
 Aria:
