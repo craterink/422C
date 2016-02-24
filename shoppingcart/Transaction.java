@@ -41,14 +41,26 @@ public class Transaction {
     private static final String STATES_REGEX = "AL|AK|AS|AZ|AR|CA|CO|CT|DE|DC|FM|FL|GA|GU|HI|ID|IL|IN|"
             + "IA|KS|KY|LA|ME|MH|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|MP|OH|OK|OR|PW|PA|PR|RI"
             + "|SC|SD|TN|TX|UT|VT|VI|VA|WA|WV|WI|WY";
-
+    
+    /**
+     * Regex matching a correct transaction input integer.
+     */
+    private static final String INTEGER_REGEX = "([0-9]{1,3}(,[0-9]{3})*(\\.0*)?|"
+    															+ "[0-9]{0,3}(,[0-9]{3})*(\\.0+))";
+    
+    /**
+     * Regex matching a correct transaction price input.
+     */
+    private static final String PRICE_REGEX = "(([0-9]{1,3}(,[0-9]{3})*(\\.[0-9]*)?)|"
+    														+ "([0-9]{0,3}(,[0-9]{3})*(\\.[0-9]+)))";
+    
     /**
      * Regex matching an insert transaction
      */
     private static final String INSERT_REGEX = "insert ("
-    		+ "(clothing [^ ]+ [0-9]+(\\.[0-9]{1,2})? [0-9]+(\\.0+?)? [0-9]+(\\.0+?)?)|"
-    		+ "(electronics [^ ]+ [0-9]+(\\.[0-9]{1,2})? [0-9]+(\\.0+?)? [0-9]+(\\.0+?)? N?F (" + STATES_REGEX + "))|"
-    		+ "(groceries [^ ]+ [0-9]+(\\.[0-9]{1,2})? [0-9]+(\\.0+?)? [0-9]+(\\.0+?)? N?P)) ?";
+    		+ "(clothing [^ ]+ " + PRICE_REGEX + " " + INTEGER_REGEX + " " + INTEGER_REGEX + "|"
+    		+ "(electronics [^ ]+ " + PRICE_REGEX + " " + INTEGER_REGEX + " " + INTEGER_REGEX + " N?F (" + STATES_REGEX + "))|"
+    		+ "(groceries [^ ]+ " + PRICE_REGEX + " " + INTEGER_REGEX + " " + INTEGER_REGEX + " N?P)) ?";
 
     /**
      * Regex matching a delete transaction
