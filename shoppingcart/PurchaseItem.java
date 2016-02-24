@@ -48,11 +48,12 @@ public class PurchaseItem implements Comparable<PurchaseItem>{
      * @param itemQuantity Item quantity.
      * @param itemWeight   Item weight.
      */
-    public PurchaseItem(String itemName, BigDecimal itemPrice, long itemQuantity, long itemWeight) {
+    public PurchaseItem(String itemName, BigDecimal itemPrice, long itemQuantity, long itemWeight, boolean isPremium) {
         this.name = itemName;
         this.price = itemPrice;
         this.quantity = itemQuantity;
         this.weight = itemWeight;
+        this.isPremium = isPremium;
     }
 
     /**
@@ -104,10 +105,12 @@ public class PurchaseItem implements Comparable<PurchaseItem>{
      * Prints to the console this purchase item's member variables.
      */
     public void printItemAttributes() {
-        System.out.println(name + "\t"
-                + quantity + "\t"
-                + weight + "\t"
-                + "$" + (new DecimalFormat("0.00")).format(price) + "\n");
+        System.out.println(name + "     "
+      		    + "$" + (new DecimalFormat("0.00")).format(price) + "    "
+                + "qty: " + quantity + "     "
+                + "wt: " + weight + "     "
+                + "ship: " + (isPremium ? "Premium" : "Standard") + "    "
+                + "Item Total: $" + (new DecimalFormat("0.00")).format(calculatePrice()) + "\n");
     }
 
 	@Override

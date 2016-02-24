@@ -3,5 +3,3 @@ Write readme
 
 React to Mehtaab's email:
 overflow handling
-
->>Cooper<< Do we need to print a receipt at the end of our program (in driver - main method)

@@ -113,14 +113,14 @@ public class Operation {
      * the shopping cart can perform
      * @throws InvalidOperationException When an invalid exception was entered
      */
-    public Operation(String operationStr) throws InvalidOperationException {
+    public Operation(String operationStr) {
         final int BEGIN_INDEX = 0;
         String type;
         try {
             //get rid of any whitespace that isn't a single space
-            operationStr.replaceAll("[\\t ]+", " ");
+            operationStr = operationStr.replaceAll("[\\t ]+", " ");
             //get rid of starting space
-            if (operationStr.startsWith(" ")) operationStr.replaceFirst(" ", "");
+            if (operationStr.startsWith(" ")) operationStr = operationStr.replaceFirst(" ", "");
             //properly assign operation type string to type variable, ignoring weird 
             if(operationStr.indexOf(" ") < BEGIN_INDEX) {
             	type = operationStr;
@@ -189,7 +189,8 @@ public class Operation {
     private void parseUpdate(String updateStr) {
         operationType = OperationType.UPDATE;
         operationItem = new PurchaseItem(
-                updateStr.split(" ")[1], BigDecimal.valueOf(0), (long)Double.parseDouble(updateStr.split(" ")[2]), 0);
+                updateStr.split(" ")[1], BigDecimal.valueOf(0), 
+                (long)Double.parseDouble(updateStr.split(" ")[2]), 0, false);
     }
 
     /**
@@ -198,7 +199,7 @@ public class Operation {
      */
     private void parseSearch(String searchStr) {
         operationType = OperationType.SEARCH;
-        operationItem = new PurchaseItem(searchStr.split(" ")[1], BigDecimal.valueOf(0), 0, 0);
+        operationItem = new PurchaseItem(searchStr.split(" ")[1], BigDecimal.valueOf(0), 0, 0, false);
     }
 
     /**
@@ -207,7 +208,7 @@ public class Operation {
      */
     private void parseDelete(String deleteStr) {
         operationType = OperationType.DEL;
-        operationItem = new PurchaseItem(deleteStr.split(" ")[1], BigDecimal.valueOf(0), 0, 0);
+        operationItem = new PurchaseItem(deleteStr.split(" ")[1], BigDecimal.valueOf(0), 0, 0, false);
     }
 
     /**

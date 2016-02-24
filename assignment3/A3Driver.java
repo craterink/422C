@@ -22,26 +22,31 @@ public class A3Driver
 	 * @throws IOException File error
 	 * @throws InvalidOperationException If invalid operation is entered //TODO
 	 */
-	  public static void main(String[] args) throws IOException, InvalidOperationException 
+	  public static void main(String[] args) throws IOException 
 	  {
-		  //Get ready to read the file specified in the args
-		  FileReader freader = new FileReader(args[0]);
-		  BufferedReader reader = new BufferedReader(freader);
-		  //initialize a shopping cart
-		  ShoppingCart cart = new ShoppingCart();
-		  //Read one line at a time, parse, then perform on cart
-		  for (String line = reader.readLine(); line != null; line = reader.readLine()) 
-		  {
-			  //make sure there are characters in the line first
-			  if(line.trim().length() > 0)
+		  try {
+			//Get ready to read the file specified in the args
+			  FileReader freader = new FileReader(args[0]);
+			  BufferedReader reader = new BufferedReader(freader);
+			  //initialize a shopping cart
+			  ShoppingCart cart = new ShoppingCart();
+			  //Read one line at a time, parse, then perform on cart
+			  for (String line = reader.readLine(); line != null; line = reader.readLine()) 
 			  {
-				  Operation op = new Operation(line);
-				  if(op.getOperationType() != OperationType.NONE)
-					  cart.performOperation(op);
+				  //make sure there are characters in the line first
+				  if(line.trim().length() > 0)
+				  {
+					  Operation op = new Operation(line);
+					  if(op.getOperationType() != OperationType.NONE)
+						  cart.performOperation(op);
+				  }
 			  }
-		  }
-		//print a "receipt"
-		  cart.print();
+			  //print a "receipt"
+			  cart.print();
+			  reader.close();
+		} catch (IOException ioe) { //file error
+			System.out.println("Error: File could not be read.");
+		}
 	  }
 
 }

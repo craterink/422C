@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 insert clothing smalShirt 1,000,000. 1,500,000. .00 insert clothing smalShirt 1,000,000. 1,500,000. .00
 
+=======
+insert			 clothing   smalShirt	 20.50      1,500,000.00 500.00 sdfvsfgr
+insert electronics PS4 400 5000    1000 NF TX
+insert groceries cilantero 0.25 1000 2 P
+>>>>>>> f68b0c687270e9f54346140286180021a8577c74
 
 print
 
 delete smalShirt 
 delete cilantero
 delete PS4
+
+
