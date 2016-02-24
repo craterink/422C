@@ -2,6 +2,6 @@ Cooper:
 	-Algorithm
 	-Use case diagram
 Aria:
-	-BigDecimal
-	-ADT level description
-	-Functional block diagram
+	DONE	-BigDecimal
+		-ADT level description
+		-Functional block diagram

@@ -1,0 +1,10 @@
+<<<<<<< HEAD
+=======
+Change readme to address assumptions
+Write readme
+
+React to Mehtaab's email:
+overflow handling
+
+>>Cooper<< Do we need to print a receipt at the end of our program (in driver - main method)
+>>>>>>> 3ff55957d690f8c7aaac2def6a629fc4dfa06317
