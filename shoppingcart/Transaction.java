@@ -112,13 +112,10 @@ public class Transaction {
             //get rid of any whitespace that isn't a single space
             transactionStr.replaceAll("[\\t ]+", " ");
             if (transactionStr.startsWith(" ")) transactionStr.replaceFirst(" ", "");
-            if (!transactionStr.toLowerCase().matches(PRINT_REGEX)) {
-                //split using single space as delimiter
-                type = transactionStr.substring(BEGIN_INDEX, transactionStr.indexOf(" "));
-            } else{
-                //if a print transaction, just parse it and then return
-                parsePrint(transactionStr);
-                return;
+            if(transactionStr.indexOf(" ") < BEGIN_INDEX) {
+            	type = transactionStr;
+            } else {
+            	type = transactionStr.substring(BEGIN_INDEX, transactionStr.indexOf(" "));
             }
             //if empty transaction is invalid
             switch (type.toLowerCase()) {
@@ -143,6 +140,9 @@ public class Transaction {
                         parseSearch(transactionStr);
                     }
                     break;
+                case "print":
+                   parsePrint(transactionStr);
+                   break;
                 case "update":
                     if (!transactionStr.toLowerCase().matches(UPDATE_REGEX))
                         throw new InvalidTransactionException(transactionStr);
@@ -153,8 +153,8 @@ public class Transaction {
                 default:
                     throw new InvalidTransactionException(transactionStr);
             }
-        } catch (InvalidTransactionException i) {
-            i.printError();
+        } catch (InvalidTransactionException ite) {
+            ite.printError();
         }
     }
 

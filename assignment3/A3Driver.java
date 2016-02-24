@@ -31,6 +31,7 @@ public class A3Driver
 		  //Read one line at a time, parse, then perform on cart
 		  for (String line = reader.readLine(); line != null; line = reader.readLine()) 
 		  {
+			  if(line.trim().length() > 0)
 				cart.performTransaction(new Transaction(line));
 		  }
 		  cart.print();
