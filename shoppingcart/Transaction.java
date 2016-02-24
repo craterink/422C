@@ -52,17 +52,17 @@ public class Transaction {
     /**
      * Regex matching a delete transaction
      */
-    private static final String DELETE_REGEX = "delete [a-z0-9]+ ?";
+    private static final String DELETE_REGEX = "delete [^ ]+ ?";
 
     /**
      * Regex matching a search transaction
      */
-    private static final String SEARCH_REGEX = "search [a-z0-9]+ ?";
+    private static final String SEARCH_REGEX = "search [^ ]+ ?";
 
     /**
      * Regex matching an update transaction
      */
-    private static final String UPDATE_REGEX = "update [a-z0-9]+ [0-9]+ ?";
+    private static final String UPDATE_REGEX = "update [^ ]+ [0-9]+(\\.0+)? ?";
 
     /**
      * Regex matching a print transaction
@@ -73,17 +73,24 @@ public class Transaction {
     private TransType transactionType = TransType.NONE;
 
     /**
-     * Sets the type of each transaction using the TransType enum
+     * Gets the type of this transaction
      * @return TransType
      */
     public TransType getTransactionType() {
         return transactionType;
     }
 
+    /**
+     * Sets the type of this transaction using the TransType enum
+     */
     public void setTransactionType(TransType transactionType) {
         this.transactionType = transactionType;
     }
 
+    /**
+     * 
+     * @return PurchaseItem containing transaction information
+     */
     public PurchaseItem getTransactionItem() {
         return transactionItem;
     }
