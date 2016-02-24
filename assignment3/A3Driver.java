@@ -15,7 +15,6 @@ import java.io.IOException;
  */
 public class A3Driver 
 	{
-
 	/**
 	 * Performs all transactions from the input file and then prints a "receipt"
 	 * representing the final shopping cart state.

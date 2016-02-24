@@ -10,6 +10,8 @@ package shoppingcart;
 
 import shoppingcart.errors.InvalidTransactionException;
 
+import java.math.BigDecimal;
+
 /**
  * Enumerated type representing different transaction types
  * @author Aria Pahlavan, Cooper Raterink
@@ -33,7 +35,6 @@ enum TransType {
  *
  */
 public class Transaction {
-
     /**
      * Regex matching valid U.S. state abbreviations.
      */

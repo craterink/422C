@@ -1,9 +1,46 @@
-insert clothing shirt 20.50 1 1
-insert electronics PS3 300 1 5 F NM
+insert clothing LG_TV40" 0 0 0
+insert clothing smalShirtSize2 5 1 2
+insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000
+insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000
+insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000
+insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000
+update LowFatMilk100 0.00
+insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000
+update LowFatMilk100 0.00
+insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000
+update LowFatMilk100 0.00
+update LowFatMilk100 0.00
+update LowFatMilk100 0.00
+insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000
+update LowFatMilk100 0.00
+update LowFatMilk100 0.00
+update LowFatMilk100 0.00
+insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000
+update LowFatMilk100 0.00
+update LowFatMilk100 0.00
+update LowFatMilk100 1.00
+insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000
+update LowFatMilk100 1.00
+update LowFatMilk100 1.00
+update LowFatMilk100 1.00
+update LowFatMilk100 1.00
+insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000
+update LowFatMilk100 1.00
+update LowFatMilk100 1.00
+update LowFatMilk100 1.00
+insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000
+update LowFatMilk100 1.00
+update LowFatMilk100 1.00
+update LowFatMilk100 1.00
+update LowFatMilk100 1.00
+update LowFatMilk100 1.00
+update LowFatMilk100 1.00
+update LowFatMilk100 1.00
+update LowFatMilk100 1.00
+update LowFatMilk100 1.00
+insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000
+insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000
+insert groceries LowFatMilk100 00000.50 000100.0000 00002.00000
+insert electronics PS3 300 1 5 F NM 
 insert groceries cabbage 2.00 5 1 NP
-print
-insert groceries cabbage 2.00 5 1 NP
-update cabbage 10
-delete cabbage
-print
-
+insert groceries cabbage 2.00 5 1 P
