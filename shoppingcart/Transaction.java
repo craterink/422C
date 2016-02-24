@@ -88,13 +88,17 @@ public class Transaction {
     }
 
     /**
-     * 
+     * Gets the purchase item representing this transaction's info.
      * @return PurchaseItem containing transaction information
      */
     public PurchaseItem getTransactionItem() {
         return transactionItem;
     }
 
+    /**
+     * Sets new information for the transaction using a purchase item.
+     * @param transactionItem The new transaction information purchase item.
+     */
     public void setTransactionItem(PurchaseItem transactionItem) {
         this.transactionItem = transactionItem;
     }
@@ -118,13 +122,14 @@ public class Transaction {
         try {
             //get rid of any whitespace that isn't a single space
             transactionStr.replaceAll("[\\t ]+", " ");
+            //get rid of starting space
             if (transactionStr.startsWith(" ")) transactionStr.replaceFirst(" ", "");
+            //properly assign transaction type string to type variable, ignoring weird 
             if(transactionStr.indexOf(" ") < BEGIN_INDEX) {
             	type = transactionStr;
             } else {
             	type = transactionStr.substring(BEGIN_INDEX, transactionStr.indexOf(" "));
             }
-            //if empty transaction is invalid
             switch (type.toLowerCase()) {
                 case "insert":
                     if (!transactionStr.toLowerCase().matches(INSERT_REGEX.toLowerCase()))
