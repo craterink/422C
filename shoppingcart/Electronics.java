@@ -78,7 +78,7 @@ public class Electronics extends PurchaseItem
 	 */
 	public void calculateTax() {
 		if(!isTaxExempt())
-			salesTax = price.multiply(TAX_RATE);
+			salesTax = (price.multiply(BigDecimal.valueOf(quantity)).add(shippingCost)).multiply(TAX_RATE);
 		else
 			salesTax = BigDecimal.valueOf(0.00);
 	}

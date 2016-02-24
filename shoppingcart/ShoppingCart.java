@@ -79,8 +79,9 @@ public class ShoppingCart {
                 long deletionCounter = 0;
                 for (int i =0; i < cart.size(); i++) {
                     if (operationItem.name.equals(cart.get(i).name)) {
-                        cart.remove(cart.get(i));
                         deletionCounter += cart.get(i).quantity;
+                        cart.remove(cart.get(i--));
+
                     }
                 }
                 //outputting number of deletions

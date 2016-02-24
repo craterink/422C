@@ -97,7 +97,7 @@ public class PurchaseItem implements Comparable<PurchaseItem>{
      * Calculates this item's sales tax.
      */
     public void calculateTax() {
-        salesTax = price.multiply(TAX_RATE);
+        salesTax = (price.multiply(BigDecimal.valueOf(quantity)).add(shippingCost)).multiply(TAX_RATE);
     }
 
     /**
