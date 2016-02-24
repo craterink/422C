@@ -1,6 +1,8 @@
 Cooper:
-	-Transaction
-	-Driver
+	-Analysis
+	-Algorithm
+	-Use case diagram
 Aria:
-	-ShoppingCart
-	-Purchase items and subs
+	-BigDecimal
+	-ADT level description
+	-Functional block diagram
