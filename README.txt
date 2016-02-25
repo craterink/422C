@@ -9,4 +9,4 @@ Main Method Location: assignment3.A3Driver.java
 Git URL: https://github.com/craterink/422C.git
 
 Other comments:
-
+We assumed that sales tax is levied on shipping costs as well (based on how Amazon does it)
