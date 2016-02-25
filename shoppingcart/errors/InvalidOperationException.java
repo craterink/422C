@@ -9,18 +9,27 @@ package shoppingcart.errors;
 
 /**
  * Exception thrown when an entered operation is invalid
- *
  * @author Aria Pahlavan - Cooper Raterink
- *
  */
 public class InvalidOperationException extends Exception {
-    private String errorDetail;
+    
+	/**
+	 * Contains details about this specific operation exception
+	 */
+	private String exceptionDetail;
 
-    public InvalidOperationException(String errorDetail) {
-        this.errorDetail = errorDetail;
+	/**
+	 * Initializes this operation exception object, setting the string containing details
+	 * @param exDetail String with details about the operation exception that occurred.
+	 */
+    public InvalidOperationException(String exDetail) {
+        this.exceptionDetail = exDetail;
     }
 
-    public void printError(){
-        System.out.println("\nThe following operation contains an error: " + errorDetail);
+    /**
+     * Prints a message about this specific operation exception
+     */
+    public void printException(){
+        System.out.println("\nThe following operation contains an error: " + exceptionDetail);
     }
 }
