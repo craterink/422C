@@ -169,7 +169,7 @@ public class Operation {
             }
         } catch (InvalidOperationException ite) {
       	   //the operation must be invalid because there was an error while parsing
-            ite.printError();
+            ite.printException();
             operationType = OperationType.NONE;
         }
     }

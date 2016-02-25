@@ -64,13 +64,13 @@ public class ShoppingCart {
             case GROCERY: //insert groceries
                 cart.add(operationItem);
                 Collections.sort(cart);
-                System.out.println("Added " + operationItem.name + " to cart.");
+                System.out.println("\nAdded " + operationItem.name + " to cart.");
                 break;
             case UPDATE: //update
                 for (PurchaseItem item : cart) {
                     if (operationItem.name.equals(item.name)) {
                         item.updateItem(operationItem);
-                        System.out.println("Updated: " + item.name + "\t" + item.quantity);
+                        System.out.println("\nUpdated: " + item.name + "\t" + item.quantity);
                         break; //Only update the first occurrence of an item
                     }
                 }
@@ -85,7 +85,7 @@ public class ShoppingCart {
                     }
                 }
                 //outputting number of deletions
-                System.out.println(deletionCounter + " " + operationItem.name + "(s) were deleted.");
+                System.out.println("\n" + deletionCounter + " " + operationItem.name + "(s) were deleted.");
                 break;
             case SEARCH: //search
                 long searchResult = 0;
@@ -93,13 +93,13 @@ public class ShoppingCart {
                     if (operationItem.name.equals(item.name))
                         searchResult += item.quantity;
                 }
-                System.out.println(searchResult + " " + operationItem.name + "(s) were found.");
+                System.out.println("\n" + searchResult + " " + operationItem.name + "(s) were found.");
                 break;
             case PRINT: //print
                 print();
                 break;
             case NONE:
-            	 System.out.println("Operation is invalid. Cannot perform");
+            	 System.out.println("\nOperation is invalid. Cannot perform");
             	 break;
         }
 
