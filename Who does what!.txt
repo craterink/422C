@@ -1,7 +1,0 @@
-Cooper:
-	-Algorithm
-	-Use case diagram
-Aria:
-	DONE	-BigDecimal
-		-ADT level description
-		-Functional block diagram
