@@ -1,0 +1,8 @@
+insert clothing AsmallShirt .50 2.00 4.00
+insert electronics PS1 .50 2 0004 NF TX
+insert electronics PS2 .50 2 0004 F TX
+insert electronics PS3 .50 2 0004 NF LA
+insert electronics PS4 .50 2 0004 F LA
+insert groceries Radish1 .50 2 4. P
+insert groceries Zuccini .50 2 4 NP
+
